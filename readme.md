@@ -47,3 +47,6 @@ Constant
 - Python programmers use all capital letters to indicate a variable should be treated as a constant and never be changed
 
 (When you want to treat a variable as a constant in your code, write the name of the variable in all capital letters.)
+
+
+
