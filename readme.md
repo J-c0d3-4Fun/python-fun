@@ -1,4 +1,4 @@
-Remember this when Naming and Using Variables !!
+Python Notes
 
 Variable names can contain only:
 - lettters
@@ -49,4 +49,10 @@ Constant
 (When you want to treat a variable as a constant in your code, write the name of the variable in all capital letters.)
 
 
-
+List
+- is a collection of itmes in a particular order
+- it’s a good idea to make the name of your list plural, such as letters, digits, or names.
+- In Python, square brackets ([]) indicate a list, and individual elements in the list are separated by commas.
+- Python considers the first item in a list to be at position 0, not position 1.
+        - Using this counting system, you can get any element you want from a list by subtracting one from its position in the list.
+        - If you ask for the item at index -1, Python always returns the last item in the list
