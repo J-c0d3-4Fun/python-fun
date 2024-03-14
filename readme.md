@@ -56,6 +56,7 @@ List
 - Python considers the first item in a list to be at position 0, not position 1.
         - Using this counting system, you can get any element you want from a list by subtracting one from its position in the list.
         - If you ask for the item at index -1, Python always returns the last item in the list
+
 Loops
 - When you want to do the same action with every item in a list, you
 can use Python’s for loop
