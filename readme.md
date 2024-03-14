@@ -56,3 +56,18 @@ List
 - Python considers the first item in a list to be at position 0, not position 1.
         - Using this counting system, you can get any element you want from a list by subtracting one from its position in the list.
         - If you ask for the item at index -1, Python always returns the last item in the list
+Loops
+- When you want to do the same action with every item in a list, you
+can use Python’s for loop
+- When you’re using loops for the first time, keep in mind that the set of
+steps is repeated once for each item in the list, no matter how many items
+are in the list.
+- when writing your own for loops that you can choose
+any name you want for the temporary variable that will be associated with
+each value in the list.
+- Any lines of code after the for loop that are not indented are executed
+once without repetition.
+- Python uses indentation to determine how a line, or group of lines, is related to the rest of the program.
+- Always indent the line after the for statement in a loop.
+- The colon at the end of a for statement tells Python to interpret the next
+line as the start of a loop
