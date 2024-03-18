@@ -79,14 +79,17 @@ for value in range(1, 11):
 
 print(squares)
 
+#A few Python functions are helpful when working with lists of numbers. 
+#For example, you can easily find the minimum, maximum, and sum of a list of numbers
 
+digits = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0]
+min(digits)
+max(digits)
+sum(digits)
 
-
-
-
-
-
-
+#A list comprehension allows you to generate this same list in just one line of code. A list comprehension combines the for loop and the creation of new elements into one line, and automatically appends each new element.
+squares = [value**2 for value in range(1, 11)]
+print(squares)
 
 
 
