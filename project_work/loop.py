@@ -91,6 +91,61 @@ sum(digits)
 squares = [value**2 for value in range(1, 11)]
 print(squares)
 
+#slicing a list
+#a specific group of items in a list, called a slice in Python.
+#To make a slice, you specify the index of the first and last elements you want to work with. As with the range() function, Python stops one item before the second index you specify.
+
+players = ['charles', 'martina', 'michael', 'florence', 'eli']
+print(players[0:3])
+
+
+players = ['charles', 'martina', 'michael', 'florence', 'eli']
+print(players[1:4])
+
+#If you omit the first index in a slice, Python automatically starts your slice at the beginning of the list
+
+players = ['charles', 'martina', 'michael', 'florence', 'eli']
+print(players[:4])
+
+# A similar syntax works if you want a slice that includes the end of a list.
+players = ['charles', 'martina', 'michael', 'florence', 'eli']
+print(players[2:])
+
+# Note - You can include a third value in the brackets indicating a slice. If a third value is included, this tells Python how many items to skip between items in the specified range.
+
+#looping through a slice
+#You can use a slice in a for loop if you want to loop through a subset of the elements in a list.
+
+players = ['charles', 'martina', 'michael', 'florence', 'eli']
+
+print("Here are the first three players on my team")
+for player in players[:3]:
+    print(player.title())
+
+#copying a list
+# To copy a list, you can make a slice that includes the entire original list
+# by omitting the first index and the second index ([:]). This tells Python to
+# make a slice that starts at the first item and ends with the last item, producing
+# a copy of the entire list.
+
+my_foods = ['pizza', 'falafel', 'carrot cake']
+friend_foods = my_foods[:]
+my_foods.append('cannoli')
+friend_foods.append('ice cream')
+
+print("My favorite foods are:")
+print(my_foods)
+
+print("\nMy friend's favorite foods are:")
+print(friend_foods)
+
+
+
+
+
+
+
+
 
 
 
