@@ -139,15 +139,35 @@ print(my_foods)
 print("\nMy friend's favorite foods are:")
 print(friend_foods)
 
+#tuples
+#Python refers to values that cannot change as immutable, and an immutable list is called a tuple
+# A tuple looks just like a list, except you use parentheses instead of square brackets. 
+# Once you define a tuple, you can access individual elements by using each item’s index, just as you would for a list.
 
+dimensions = (200, 50)
+print(dimensions[0])
+print(dimensions[1])
 
+# Note - Tuples are technically defined by the presence of a comma; the parentheses make them look neater and more readable. If you want to define a tuple with one element, you need to include a trailing comma:
+my_t = (3,)
 
+#looping through all values in a tuple
+dimensions = (200, 50)
+for dimension in dimensions:
+    print(dimension)
 
+#Writing over a tuple
+#Although you can’t modify a tuple, you can assign a new value to a variable that represents a tuple.
+dimensions = (200, 50)
+print("Original dimensions:")
+for dimension in dimensions:
+    print(dimension)
 
+dimensions = (400, 100)
+print("\nModified dimensions:")
+for dimension in dimensions:
+    print(dimension)
 
-
-
-
-
+#When compared with lists, tuples are simple data structures. Use them when you want to store a set of values that should not be changed throughout the life of a program.
 
 
