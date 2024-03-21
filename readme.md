@@ -72,3 +72,20 @@ once without repetition.
 - Always indent the line after the for statement in a loop.
 - The colon at the end of a for statement tells Python to interpret the next
 line as the start of a loop
+
+
+Style Guide
+- When someone wants to make a change to the Python language, they write a Python Enhancement Proposal (PEP).
+- One of the oldest PEPs is PEP 8, which instructs Python programmers on how to style their code.
+- Python programmers will almost always encourage you to write code that’s easier to read.
+
+Indentation
+- PEP 8 recommends that you use four spaces per indentation level. 
+- Using four spaces improves readability while leaving room for multiple levels of indentation on each line
+
+Line length
+- Many Python programmers recommend that each line should be less than 80 characters
+
+Blank Lines
+- To group parts of your program visually, use blank lines
+
