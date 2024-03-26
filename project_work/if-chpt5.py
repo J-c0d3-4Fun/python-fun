@@ -105,16 +105,105 @@ can_edit = False
 #Boolean values provide an efficient way to track the state of a program or a particular condition that is important in your program.
 
 
+#If Statements
+#simple if statements
+#The simplest kind of if statement has one test and one action
+
+age = 19
+if age >= 18:
+    print("You are old enough to vote!")
+
+#All indented lines after an if statement will be executed if the test passes, and the entire block of indented lines will be ignored if the test does not pass.
 
 
+age = 19
+if age >= 18:
+    print("You are old enough to vote!")
+    print("Have you registered to vote yet?")
+
+#if else statements
+# Python’s if-else syntax makes this possible. An if-else block is similar to a simple if statement, but the else statement allows you to define an action or set of actions that are executed when the conditional test fails.
+
+age = 17
+if age >= 18:
+    print("You are old enough to vote!")
+    print("Have you registered to vote yet?")
+else:
+    print("Sorry, you are too young to vote")
+    print("Please register to vote as soon as you turn 18!")
+# The if-else structure works well in situations in which you want Python to always execute one of two possible actions.
+
+#if-elif-else Chain
+# Often, you’ll need to test more than two possible situations, and to evaluate these you can use Python’s if-elif-else syntax. 
+#Python executes only one block in an if-elif-else chain. It runs each conditional test in order, until one passes. 
+# When a test passes, the code following that test is executed and Python skips the rest of the tests.
+
+age = 12
+if age < 4:
+    print("your admission cost is $0.")
+elif age < 18:
+    print("Your admission cost is $25.")
+else:
+    print("Your admission cost is $40")
+
+#if-elif-else chain
+age = 12
+if age < 4:
+    price = 0
+elif age < 18:
+    price = 25
+else:
+    price = 40
+
+print(f"Your admission cost is ${price}.")
+
+#Using Multiple elif Blocks
+
+age = 12
+if age < 4:
+    price = 0
+elif age < 18:
+    price = 25
+elif age < 65:
+    price = 40
+else:
+    price = 20
+
+print(f"Your admission cost is ${price}.")
+
+#Omitting the else Block
+#Python does not require an else block at the end of an if-elif chain. Sometimes, an else block is useful. Other times, it’s clearer to use an additional elif statement that catches the specific condition of interest
+
+age = 12
+if age < 4:
+    price = 0
+elif age < 18:
+    price = 25
+elif age < 65:
+    price = 40
+elif age >= 65:    #<---- elif ends the loop
+    price = 20
+
+print(f"Your admission cost is ${price}.")
+
+#The else block is a catchall statement. It matches any condition that wasn’t matched by a specific if or elif test, and that can sometimes include invalid or even malicious data. 
+#If you have a specific final condition you’re testing for, consider using a final elif block and omit the else block. 
+#As a result, you’ll be more confident that your code will run only under the correct conditions.
+
+#Testing Multiple Conditions
+#sometimes it’s important to check all conditions of interest. In this case, you should use a series of simple if statements with no elif or else blocks.
+#This technique makes sense when more than one condition could be True, and you want to act on every condition that is True.
+
+requested_toppings = ['mushroom', 'extra cheese' ]
+
+if 'mushroom' in requested_toppings:
+    print('Adding mushrooms')
+
+if 'pepperoni' in requested_toppings:
+    print('Adding pepperoni')
 
 
+if 'extra cheese' in requested_toppings:
+    print('extra cheese')
 
-
-
-
-
-
-
-
-
+print("\nFinished making your pizza!")
