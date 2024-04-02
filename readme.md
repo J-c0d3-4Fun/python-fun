@@ -89,3 +89,14 @@ Line length
 Blank Lines
 - To group parts of your program visually, use blank lines
 
+Dictionaries
+- A dictionary in Python is a collection of key-value pairs. 
+- Each key is connected to a value, and you can use a key to access the value associated with that key. 
+- A key’s value can be a number, a string, a list, or even another dictionary.
+- In Python, a dictionary is wrapped in braces ({}) with a series of key-value pairs inside the braces
+- A key-value pair is a set of values associated with each other. 
+- When you provide a key, Python returns the value associated with that key. 
+- Every key is connected to its value by a colon, and individual key-value pairs are separated
+by commas. 
+- You can store as many key-value pairs as you want in a dictionary.
+- To get the value associated with a key, give the name of the dictionary and then place the key inside a set of square brackets
