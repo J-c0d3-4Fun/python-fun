@@ -298,31 +298,110 @@ for language in set(favorite_languages.values()):
 # lists and dictionaries, sets do not retain items in any specific order
 
 
+#Nesting 
+# Sometimes you’ll want to store multiple dictionaries in a list, or a list of
+# items as a value in a dictionary. This is called nesting. You can nest dictionaries
+# inside a list, a list of items inside a dictionary, or even a dictionary inside
+# another dictionary  
+
+
+#A List of Dictionaries
+alien_0 = {'color': 'green', 'points': 5}
+alien_1 = {'color': 'yellow', 'points': 10}
+alien_2 = { 'color': 'red', 'points': 15}
+
+aliens = [alien_0, alien_1, alien_2]
+
+for alien in aliens:
+    print(alien)
+
+
+#Using a range to create more aliens
+    
+# Make an empty list for storing aliens.
+
+aliens = [ ]
+
+#Make 30 aliens.
+
+for alien_number in range(30):
+    new_alien = {'color': 'green', 'points': 5, 'speed': 'slow'}
+    aliens.append(new_alien)
+
+#show the first 5 aliens.
+
+for alien in aliens[:5]:
+    print(alien)
+
+#show how many aliens have been created.
+print(f"Total number of aliens: {len(aliens)}")
+
+# This example begins with an empty list to hold all of the aliens that will
+# be created. The range() function 1 returns a series of numbers, which just
+# tells Python how many times we want the loop to repeat. Each time the loop
+# runs, we create a new alien 2 and then append each new alien to the list
+# aliens 3. We use a slice to print the first five aliens 4, and finally, we print
+# the length of the list to prove we’ve actually generated the full fleet of
+# 30 aliens
 
 
 
+# Imagine that one aspect of a game has some aliens changing color and moving faster as the
+# game progresses. When it’s time to change colors, we can use a for loop and
+# an if statement to change the color of the aliens.
+
+# Make an empty list for storing aliens.
+
+aliens = [ ]
+
+#Make 30 aliens.
+
+for alien_number in range(30):
+    new_alien = {'color': 'green', 'points': 5, 'speed': 'slow'}
+    aliens.append(new_alien)
 
 
+for alien in aliens[:3]:
+    if alien['color'] == 'green':
+        alien['color'] = 'yellow'
+        alien['speed'] = 'medium'
+        alien['points'] = 10
+
+for alien in aliens[:5]:
+    print(alien)
+
+#show how many aliens have been created.
+print(f"Total number of aliens: {len(aliens)}")
+
+#You could expand this loop by adding an elif block that turns yellow
+#aliens into red, fast-moving ones worth 15 points each
+
+aliens = [ ]
+
+#Make 30 aliens.
+
+for alien_number in range(30):
+    new_alien = {'color': 'green', 'points': 5, 'speed': 'slow'}
+    aliens.append(new_alien)
 
 
+for alien in aliens[:3]:
+    if alien['color'] == 'green':
+        alien['color'] = 'yellow'
+        alien['speed'] = 'medium'
+        alien['points'] = 10
+    elif alien['color'] == 'yellow':
+        alien['color'] = 'red'
+        alien['speed'] = 'fast'
+        alien['points'] = 15
+        
 
 
+for alien in aliens[:5]:
+    print(alien)
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+#show how many aliens have been created.
+print(f"Total number of aliens: {len(aliens)}")
 
 
 
