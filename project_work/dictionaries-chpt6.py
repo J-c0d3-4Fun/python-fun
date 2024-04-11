@@ -165,5 +165,169 @@ favorite_languages = {
 for name, languages in favorite_languages.items():
     print(f"{name.title()}'s favorite language is {languages.title()}")
 
+#The keys() method is useful when you don’t need to work with all of the values in a dictionary.
+
+favorite_languages = {
+'jen': 'python',
+'sarah': 'c',
+'edward': 'rust',
+'phil': 'python',
+}
+
+for name in favorite_languages.keys():
+    print(name.title())
+
+
+#Alternative
+
+favorite_languages = {
+'jen': 'python',
+'sarah': 'c',
+'edward': 'rust',
+'phil': 'python',
+}
+
+for name in favorite_languages:
+    print(name.title())
+
+#You can choose to use the keys() method explicitly if it makes your code easier to read, or you can omit it if you wish.
+
+#You can access the value associated with any key you care about inside the loop, by using the current key.
+
+favorite_languages = {
+'jen': 'python',
+'sarah': 'c',
+'edward': 'rust',
+'phil': 'python',
+}
+
+
+friends = ['phil', 'sarah']
+
+for name in favorite_languages.keys():
+    print(f"Hi {name.title()}.")
+ 
+    if name in friends:
+        language = favorite_languages[name].title()
+        print(f"\t{name.title()}, I see you love {language}!")
+
+
+#You can also use the keys() method to find out if a particular person was polled.
+
+favorite_languages = {
+'jen': 'python',
+'sarah': 'c',
+'edward': 'rust',
+'phil': 'python',
+}
+
+if 'erin' not in favorite_languages.keys():
+    print("Erin, please take our poll!")
+
+# The keys() method isn’t just for looping: it actually returns a sequence of
+# all the keys, and the if statement simply checks if 'erin' is in this sequence.
+
+
+
+
+# Looping Through a Dictionary's Keys in a Particular Order
+# Looping through a dictionary returns the items in the same order they
+# were inserted. Sometimes, though, you’ll want to loop through a dictionary
+# in a different order.
+
+#You can use the sorted() function to get a copy of the keys in order
+
+favorite_languages = {
+'jen': 'python',
+'sarah': 'c',
+'edward': 'rust',
+'phil': 'python',
+}
+
+for name in sorted(favorite_languages.keys()):
+    print(f"{name.title()}, thank you for taking the poll")
+
+#This tells Python to get all the keys in the dictionary and sort them before starting the loop.
+
+# Looping Through All Values in a Dictionary
+# If you are primarily interested in the values that a dictionary contains, you
+# can use the values() method to return a sequence of values without any
+# keys.
+
+favorite_languages = {
+'jen': 'python',
+'sarah': 'c',
+'edward': 'rust',
+'phil': 'python',
+}
+
+print("The following languages have been mentioned:")
+for language in favorite_languages.values():
+    print(language.title())
+
+# The for statement here pulls each value from the dictionary and assigns
+# it to the variable language.
+# This approach pulls all the values from the dictionary without checking
+# for repeats. This might work fine with a small number of values, but in a
+# poll with a large number of respondents, it would result in a very repetitive
+# list. To see each language chosen without repetition, we can use a set. A set
+# is a collection in which each item must be unique
+
+
+favorite_languages = {
+'jen': 'python',
+'sarah': 'c',
+'edward': 'rust',
+'phil': 'python',
+}
+
+print("The following languages have been mentioned:")
+for language in set(favorite_languages.values()):
+    print(language.title())
+
+# When you wrap set() around a collection of values that contains duplicate
+# items, Python identifies the unique items in the collection and builds a
+# set from those items.
+
+# NOTE You can build a set directly using braces and separating the elements with commas:
+# >>> languages = {'python', 'rust', 'python', 'c'}
+# >>> languages
+# {'rust', 'python', 'c'}
+# It’s easy to mistake sets for dictionaries because they’re both wrapped in braces.
+# When you see braces but no key-value pairs, you’re probably looking at a set. Unlike
+# lists and dictionaries, sets do not retain items in any specific order
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 

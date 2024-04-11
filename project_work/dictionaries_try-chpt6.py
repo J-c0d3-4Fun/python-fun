@@ -52,3 +52,78 @@ glossary = {
 
 print(f" I've learned so much from the Python learning, here are some definitions. \n{glossary['blank lines']}. \n{glossary['dictionary']}. \n{glossary['key']}. \n{glossary['key-value pair']}. \n{glossary['list']} ")
 
+
+# 6-4. Glossary 2: Now that you know how to loop through a dictionary, clean
+# up the code from Exercise 6-3 (page 99) by replacing your series of print()
+# calls with a loop that runs through the dictionary’s keys and values. When
+# you’re sure that your loop works, add five more Python terms to your glossary.
+# When you run your program again, these new words and meanings should
+# automatically be included in the output.
+
+glossary = {
+    'dictionary': 'is a collection of key-value pairs.',
+    'key-value pair': 'is a set of values associated with each other.',
+    'key': 'is connected to a value, and you can use a key to access the value associated with that key',
+    'blank lines': 'group parts of your program visually, use blank lines',
+    'list': 'is a collection of itmes in a particular order',
+    'loops': 'When you want to do the same action with every item in a list, you can use Python’s for loop',
+    'float': 'any number with a decimal point a float.',
+    'integer': 'You can add (+), subtract (-), multiply (*), and divide (/) integers in Python.',
+    'constant': 'A constant is a variable whose value stays the same throughout the life of a program',
+    
+
+}
+
+for words in glossary.items():
+    print(words)
+
+
+
+
+# 6-5. Rivers: Make a dictionary containing three major rivers and the country
+# each river runs through. One key-value pair might be 'nile': 'egypt'.
+# • Use a loop to print a sentence about each river, such as The Nile runs
+# through Egypt.
+# • Use a loop to print the name of each river included in the dictionary.
+# • Use a loop to print the name of each country included in the dictionary.
+
+rivers = {'nile': 'egypt', 'yangtze': 'beijing', 'bow': 'canada'}
+
+for r,c in rivers.items():
+    print(f"\n{r} runs through {c}")
+
+for river in rivers.keys():
+    print(river.title())
+
+for country in rivers.values():
+    print(country.title())
+
+# 6-6. Polling: Use the code in favorite_languages.py (page 96).
+# • Make a list of people who should take the favorite languages poll. Include
+# some names that are already in the dictionary and some that are not.
+# • Loop through the list of people who should take the poll. If they have
+# already taken the poll, print a message thanking them for responding.
+# If they have not yet taken the poll, print a message inviting them to take
+# the poll.
+
+favorite_languages = {
+'jen': 'python',
+'sarah': 'c',
+'edward': 'rust',
+'phil': 'python',
+}
+
+take_poll = {'timmy', 'sarah', 'phil', 'lucy', 'chad'}
+
+for name in take_poll:
+    if name not in set(favorite_languages):
+        print(f"{name.title()} take the poll please!")
+    else:
+        print(f"Thank you {name.title()} for taking our poll!") 
+
+
+
+
+
+
+
