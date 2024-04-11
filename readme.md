@@ -100,3 +100,7 @@ Dictionaries
 by commas. 
 - You can store as many key-value pairs as you want in a dictionary.
 - To get the value associated with a key, give the name of the dictionary and then place the key inside a set of square brackets
+
+#Nesting 
+- Sometimes you’ll want to store multiple dictionaries in a list, or a list of items as a value in a dictionary. This is called nesting. 
+- You can nest dictionaries  inside a list, a list of items inside a dictionary, or even a dictionary inside another dictionary 
