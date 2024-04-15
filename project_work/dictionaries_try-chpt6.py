@@ -123,7 +123,83 @@ for name in take_poll:
 
 
 
+# 6-7. People: Start with the program you wrote for Exercise 6-1 (page 98). Make
+# two new dictionaries representing different people, and store all three dictionaries
+# in a list called people. Loop through your list of people. As you loop through
+# the list, print everything you know about each person.
+   
+person_1 = {'first name': 'michael', 'last name': 'scott', 'age': 40, 'city': 'scranton',}
+person_2 = {'first name': 'dwight', 'last name': 'schrute', 'age': 45, 'city': 'beet farms',}
+person_3 = {'first name': 'Jim', 'last name': 'halpert', 'age': 35, 'city': 'scranton'}
 
+people = [person_1, person_2, person_3]
+
+for person in people:
+    print(person)
+
+
+
+
+
+# 6-8. Pets: Make several dictionaries, where each dictionary represents a different
+# pet. In each dictionary, include the kind of animal and the owner’s name.
+# Store these dictionaries in a list called pets. Next, loop through your list and as
+# you do, print everything you know about each pet.
+pet_1 = {'animal': 'dog', 'owner': 'jim'}  
+pet_2 = {'animal': 'cat', 'owner': 'dwight'}
+pet_3 = {'animal': 'bird', 'owner': 'michael'}  
+
+pets = [pet_1, pet_2, pet_3]
+
+for pet in pets:
+    print(pet)
+
+
+# 6-9. Favorite Places: Make a dictionary called favorite_places. Think of three
+# names to use as keys in the dictionary, and store one to three favorite places for
+# each person. To make this exercise a bit more interesting, ask some friends to
+# name a few of their favorite places. Loop through the dictionary, and print each
+# person’s name and their favorite places.
+    
+favorite_places = {
+    'paul': ['canada', 'orlando'],
+    'christine': ['texas', 'japan'], 
+    'james': ['africa']
+    }
+
+for name, place in favorite_places.items():
+    print(f"\n{name.title()}'s favorite place to visit are: ")
+    print(f"\t{place}")
+
+# 6-10. Favorite Numbers: Modify your program from Exercise 6-2 (page 98) so
+# each person can have more than one favorite number. Then print each person’s
+# name along with their favorite numbers.
+
+favorite_numbers ={
+    'tim': [4, 25, 44],
+    'james': [23, 32, 33],
+    'angela': [7, 14, 21],
+    'pam': [45, 65, 105],
+    'dwight': [10000, 1000000, 10000000]
+}
+
+for name, number in favorite_numbers.items():
+    print(f"\n{name.title()} favorite numbers are listed here:")
+    print(f"{number}")
+
+
+# 6-11. Cities: Make a dictionary called cities. Use the names of three cities as
+# keys in your dictionary. Create a dictionary of information about each city and
+# include the country that the city is in, its approximate population, and one fact
+# about that city. The keys for each city’s dictionary should be something like
+# country, population, and fact. Print the name of each city and all of the information
+# you have stored about it.
+    
+cities = {'atlanta': '', 'charlotte': '', 'los angeles': ''}
+# 6-12. Extensions: We’re now working with examples that are complex enough
+# that they can be extended in any number of ways. Use one of the example programs
+# from this chapter, and extend it by adding new keys and values, changing
+# the context of the program, or improving the formatting of the output.
 
 
 

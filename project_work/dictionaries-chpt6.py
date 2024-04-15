@@ -403,6 +403,86 @@ for alien in aliens[:5]:
 #show how many aliens have been created.
 print(f"Total number of aliens: {len(aliens)}")
 
+# A List in a Dictonary
+
+#Store information about a pizza being ordered.
+pizza = {
+    'crust': 'thick',
+    'toppings': ['mushrooms', 'extra cheese'],
+}
+
+#Summarize the order.
+print(f"You ordered a {pizza['crust']}-crust pizza "
+    "with the following toppings:")
+
+for topping in pizza['toppings']:
+    print(f"\t{topping}")
+
+# We begin with a dictionary that holds information about a pizza that
+# has been ordered. One key in the dictionary is 'crust', and the associated
+# value is the string 'thick'. The next key, 'toppings', has a list as its value that
+# stores all requested toppings. We summarize the order before building the
+# pizza 1. When you need to break up a long line in a print() call, choose
+# an appropriate point at which to break the line being printed, and end the
+# line with a quotation mark. Indent the next line, add an opening quotation
+# mark, and continue the string. Python will automatically combine all of the
+# strings it finds inside the parentheses. To print the toppings, we write a for
+# loop 2. To access the list of toppings, we use the key 'toppings', and Python
+# grabs the list of toppings from the dictionary.
+
+
+#You can nest a list inside a dictionary anytime you want more than one
+#value to be associated with a single key in a dictionary.
+
+
+favorite_languages = {
+'jen': ['python', 'rust'],
+'sarah': ['c'],
+'edward': ['rust', 'go'],
+'phil': ['python', 'haskell'],
+}
+
+for name, languages in favorite_languages.items():
+    print(f"\n{name.title()}'s favorite languages are:")
+    for language in languages:
+        print(f"\t{language.title()}")
+
+# N O T E You should not nest lists and dictionaries too deeply. If you’re nesting items much
+# deeper than what you see in the preceding examples, or if you’re working with someone
+# else’s code with significant levels of nesting, there’s most likely a simpler way to solve
+# the problem.
+
+#A Dictionary in a Dictionary
+users = {
+    'aeinstein': {
+        'first': 'albert',
+        'last': 'einstein',
+        'location': 'paris',
+    },
+
+    'mcurie': {
+        'first': 'marie',
+        'last': 'curie',
+        'location': 'paris',
+    },
+}
+
+for username, user_info in users.items():
+    print(f"\nUsername: {username}")
+    full_name = f"{user_info['first']} {user_info['last']}"
+    location = user_info['location']
+    print(f"\tFull name: {full_name.title()}")
+    print(f"\tLocation: {location.title()}")
+
+
+
+
+
+
+
+
+
+
 
 
 
