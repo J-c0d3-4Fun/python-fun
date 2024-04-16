@@ -104,3 +104,7 @@ by commas.
 #Nesting 
 - Sometimes you’ll want to store multiple dictionaries in a list, or a list of items as a value in a dictionary. This is called nesting. 
 - You can nest dictionaries  inside a list, a list of items inside a dictionary, or even a dictionary inside another dictionary 
+
+Input() Function
+- The input() function pauses your program and waits for the user to enter some text. 
+- Once Python receives the user’s input, it assigns that input to a variable to make it convenient for you to work with.
