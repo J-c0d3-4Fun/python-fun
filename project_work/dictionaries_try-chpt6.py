@@ -195,7 +195,32 @@ for name, number in favorite_numbers.items():
 # country, population, and fact. Print the name of each city and all of the information
 # you have stored about it.
     
-cities = {'atlanta': '', 'charlotte': '', 'los angeles': ''}
+cities = {
+    'atlanta': {
+        'population': 499_127,
+        'fact': 'located in the state of GA',
+        'country': 'United States'
+    },
+
+    'charlotte':{
+        'population': 897_720,
+        'fact': 'located in the state of NC',
+        'country': 'United States'
+    },
+    
+    'los angeles':{
+        'population': 3_822_000 ,
+        'fact': 'located in the state of CA',
+        'country': 'United States'
+
+    }
+    }
+
+for city, info in cities.items():
+    print(f"The name of the city is {city.title()}")
+    print(f"here are some interesting facts: {info['fact']}, each city is located in the country: {info['country']}, and the population size is: {info['population']}")
+
+
 # 6-12. Extensions: We’re now working with examples that are complex enough
 # that they can be extended in any number of ways. Use one of the example programs
 # from this chapter, and extend it by adding new keys and values, changing
