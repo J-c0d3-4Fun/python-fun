@@ -108,3 +108,11 @@ by commas.
 Input() Function
 - The input() function pauses your program and waits for the user to enter some text. 
 - Once Python receives the user’s input, it assigns that input to a variable to make it convenient for you to work with.
+
+Int() Function
+- converts the input string to a numerical value.
+- When you use numerical input to do calculations and comparisons, be sure to convert the input value to a numerical representation first.
+
+Modulo 
+-  The modulo operator doesn’t tell you how many times one number fits into another
+- It only tells you what the remainder is.
