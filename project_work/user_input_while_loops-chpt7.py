@@ -51,6 +51,72 @@ print(f"\nHello, {name}!")
 
 age = input("How old are you? ")
 
+# if you try to use the input as a number, you’ll get an error:
+
+age = input("How old are you? ")
+
+age >= 18
+
+# When you try to use the input to do a numerical comparison , Python
+# produces an error because it can’t compare a string to an integer: the string
+# '21' that’s assigned to age can’t be compared to the numerical value 18.
+
+
+# We can resolve this issue by using the int() function, which converts the input string to a numerical value. This allows the comparison to run successfully
+
+age = input("How old are you? ")
+
+age = int(age)
+age >= 18
+
+# In this example, when we enter 21 at the prompt, Python interprets the number as a string, but the value is then converted to a numerical representation by int() 1. Now Python can run the conditional test: it compares age (which now represents the numerical value 21) and 18 to see if age is greater than or equal to 18. This test evaluates to True.
+
+
+# How do you use the int() function in an actual program? Consider a program that determines whether people are tall enough to ride a roller coaster
+
+height = input("How tall are you, in inches? ")
+height = int(height)
+
+if height >= 48:
+    print("\nYou're tall enough to ride!")
+else:
+    print("\nYou'll be able to ride when you're a little older.")
+
+# When you use numerical input to do calculations and comparisons, be sure to convert the input value to a numerical representation first.
+
+
+# The Modulo Operator
+# A useful tool for working with numerical information is the modulo operator (%), which divides one number by another number and returns the remainder
+
+4 % 3
+
+5 % 3
+
+6 % 3
+
+7 % 3
+
+# The modulo operator doesn’t tell you how many times one number fits
+# into another; it only tells you what the remainder is.
+
+
+# When one number is divisible by another number, the remainder is 0,
+# so the modulo operator always returns 0. You can use this fact to determine
+# if a number is even or odd
+
+number = input("Enter a number, and I'll tell you if it's even or odd: ")
+number = int(number)
+
+if number % 2 == 0:
+    print(f"\nThenumber {number} is even.")
+else:
+    print(f"\nThe number {number} is odd. ")
+
+# Even numbers are always divisible by two, so if the modulo of a number
+# and two is zero (here, if number % 2 == 0) the number is even. Otherwise,
+# it’s odd.
+
+
 
 
 
