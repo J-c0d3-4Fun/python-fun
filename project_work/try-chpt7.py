@@ -24,3 +24,10 @@ else:
 # number is a multiple of 10 or not.
 
 numbers = input("What is your favorite number? I will tell you if it's a multiple of ten ")
+
+numbers = int(numbers)
+
+if numbers % 10 == 0:
+    print(f"This number is divisible by 10! ")
+else:
+    print(f"This number is not a  multiple of 10")

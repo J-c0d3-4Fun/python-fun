@@ -101,7 +101,7 @@ by commas.
 - You can store as many key-value pairs as you want in a dictionary.
 - To get the value associated with a key, give the name of the dictionary and then place the key inside a set of square brackets
 
-#Nesting 
+Nesting 
 - Sometimes you’ll want to store multiple dictionaries in a list, or a list of items as a value in a dictionary. This is called nesting. 
 - You can nest dictionaries  inside a list, a list of items inside a dictionary, or even a dictionary inside another dictionary 
 
@@ -113,6 +113,15 @@ Int() Function
 - converts the input string to a numerical value.
 - When you use numerical input to do calculations and comparisons, be sure to convert the input value to a numerical representation first.
 
-Modulo 
+Modulo (%)
 -  The modulo operator doesn’t tell you how many times one number fits into another
 - It only tells you what the remainder is.
+
+For Loops
+- The for loop takes a collection of items and executes a block of code once
+for each item in the collection.
+
+While Loops
+- The while loop runs as long as, or
+while, a certain condition is true.
+- You can use a while loop to count up through a series of numbers
