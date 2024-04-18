@@ -117,9 +117,49 @@ else:
 # it’s odd.
 
 
+# Introducing while loops
+# The for loop takes a collection of items and executes a block of code once
+# for each item in the collection. In contrast, the while loop runs as long as, or
+# while, a certain condition is true.
 
 
+# You can use a while loop to count up through a series of numbers
+current_number = 1
+while current_number <= 5:
+    print(current_number)
+    current_number += 1
 
+# (The += operator is shorthand for current_number = current_number + 1.)
+
+# Letting the User Choose When to Quit
+
+prompt = "\nTell me something, and I will repeat it back to you: "
+prompt += "\nEnter 'quit' to end the program"
+
+message = ""
+while message != 'quit':
+    message = input(prompt)
+    print(message)
+
+# We first define a prompt that tells the user their two options: entering a message or entering the quit value (in this case, 'quit'). Then we set up a variable message to keep track of whatever value the user enters. We define message as an empty string, "", so Python has something to check the first time it reaches the while line. The first time the program runs and Python reaches the while statement, it needs to compare the value of message to 'quit', but no user input has been entered yet. If Python has nothing to compare, it won’t be able to continue running the program. 
+# To solve this problem, we make sure to give message an initial value. Although it’s just an
+# empty string, it will make sense to Python and allow it to perform the comparison
+# that makes the while loop work. This while loop runs as long as the
+# value of message is not 'quit'.
+
+
+# This program works well, except that it prints the word 'quit' as if it
+# were an actual message. A simple if test fixes this:
+
+prompt = "\nTell me something, and I will repeat it back to you: "
+prompt += "\nEnter 'quit' to end the program"
+
+message = ""
+while message != 'quit':
+    message = input(prompt)
+
+    if message != 'quit':
+        print(message)
 
 
 
