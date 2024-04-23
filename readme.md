@@ -125,3 +125,6 @@ While Loops
 - The while loop runs as long as, or
 while, a certain condition is true.
 - You can use a while loop to count up through a series of numbers
+
+Flag
+- acts as a signal to the program.
