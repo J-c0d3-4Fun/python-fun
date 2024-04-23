@@ -163,6 +163,74 @@ while message != 'quit':
 
 
 
+# Using a Flag
+
+prompt = "\nTell me something, and I will repeat it back to you: "
+prompt += "\nEnter 'quit' to end the program"
+
+active = True
+while active:
+    message = input(prompt)
+
+    if message == 'quit':
+        active = False
+    else:
+        print(message)
+
+# We set the variable active to True so the program starts in an active state. Doing so makes the while statement simpler because no comparison is made in the while statement itself; the logic is taken care of in other parts of the program. As long as the active variable remains True, the loop will continue running
+
+# Using break to Exit a Loop
+# To exit a while loop immediately without running any remaining code in
+# the loop, regardless of the results of any conditional test, use the break statement.
+# The break statement directs the flow of your program; you can use it
+# to control which lines of code are executed and which aren’t, so the program
+# only executes code that you want it to, when you want it to.
+
+prompt = "\nPlease enter nameof a city you have visited:"
+prompt += "\n(Enter 'quit' when you are finished.)"
+
+while True:
+    city = input(prompt)
+
+    if city == 'quit':
+        break
+    else:
+        print(f"I'd love to go to {city.title()}!")
+
+
+# A loop that starts with while True will run forever unless it reaches a
+# break statement. The loop in this program continues asking the user to enter
+# the names of cities they’ve been to until they enter 'quit'. When they enter
+# 'quit', the break statement runs, causing Python to exit the loop
+
+# NOTE You can use the break statement in any of Python’s loops. For example, you could use
+# break to quit a for loop that’s working through a list or a dictionary.
+
+# Using continue in a Loop
+# Rather than breaking out of a loop entirely without executing the rest of its code, you can use the continue statement to return to the beginning of the loop, based on the result of a conditional test.
+
+current_number = 0
+while current_number < 10:
+    current_number += 1
+    if current_number % 2 == 0:
+        continue
+    print(current_number)
+
+# Avoiding Ifinite Loops
+# Every while loop needs a way to stop running so it won’t continue to run forever.
+
+x = 1
+while x <=5:
+    print(x)
+    x += 1
+
+# If you accidentally omit the line x += 1, the loop will run forever
 
 
 
+# To avoid writing infinite loops, test every while loop and make sure the loop
+# stops when you expect it to. If you want your program to end when the user
+# enters a certain input value, run the program and enter that value. If the
+# program doesn’t end, scrutinize the way your program handles the value that
+# should cause the loop to exit. Make sure at least one part of the program can
+# make the loop’s condition False or cause it to reach a break statement
