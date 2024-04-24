@@ -54,6 +54,21 @@ while True:
 # $15. Write a loop in which you ask users their age, and then tell them the cost
 # of their movie ticket.
 
+prompt = "Welcome to the movie theater"
+prompt += "\nWhat is your age?"
+
+while True:
+    age = input(prompt)
+    age = int(age)
+
+    if age < 3:
+        print("Your ticket is free!")
+    elif age < 12:
+        print("the ticket is $10")
+    else: 
+        print("your ticket is $15")
+        
+
 
 
 # 7-6. Three Exits: Write different versions of either Exercise 7-4 or 7-5 that do
@@ -61,5 +76,25 @@ while True:
 # • Use a conditional test in the while statement to stop the loop.
 # • Use an active variable to control how long the loop runs.
 # • Use a break statement to exit the loop when the user enters a 'quit' value.
+prompt = "What's your favorite city?"
+
+while True:
+    city = input(prompt)
+
+    if city == 'quit':
+        break
+    else:
+        print(f"I would love to visit {city.title()}")
+
+
+
 # 7-7. Infinity: Write a loop that never ends, and run it. (To end the loop, press
 # CTRL-C or close the window displaying the output.
+
+prompt = "enter a number"
+number = input(prompt)
+number = int(number)
+
+
+
+
