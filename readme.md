@@ -118,13 +118,14 @@ Modulo (%)
 - It only tells you what the remainder is.
 
 For Loops
-- The for loop takes a collection of items and executes a block of code once
-for each item in the collection.
+- The for loop takes a collection of items and executes a block of code once for each item in the collection.
+- A for loop is effective for looping through a list, but you shouldn’t modify a list inside a for loop because Python will have trouble keeping track of the items in the list. 
 
 While Loops
 - The while loop runs as long as, or
 while, a certain condition is true.
 - You can use a while loop to count up through a series of numbers
+- To modify a list as you work through it, use a while loop. Using while loops with lists and dictionaries allows you to collect, store, and organize lots of input to examine and report on later.
 
 Flag
 - acts as a signal to the program.

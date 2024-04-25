@@ -234,3 +234,80 @@ while x <=5:
 # program doesn’t end, scrutinize the way your program handles the value that
 # should cause the loop to exit. Make sure at least one part of the program can
 # make the loop’s condition False or cause it to reach a break statement
+
+
+# Using a while loop with Lists and Dictionaries
+# Moving items from One List to Another
+
+# Start with users that need to be verified,
+# and an empty list to hold confirmed users.
+unconfirmed_users = ['alice', 'brian', 'candace']
+confirmed_users = []
+
+# Verify each user until there are no more unconfirmed users.
+# Move each verified user into the list of confirmed users.
+while unconfirmed_users:
+    current_user = unconfirmed_users.pop()
+
+    print(f"Verifying user : {current_user.title()}")
+    confirmed_users.append(current_user)
+
+# Display all confirmed users.
+print("\nThe following users have been confirmed:")
+for confirmed_user in confirmed_users:
+    print(confirmed_user.title())
+
+# We begin with a list of unconfirmed users 1 (Alice, Brian, and Candace) and an empty list to hold confirmed users. 
+# The while loop runs as long as the list unconfirmed_users is not empty 2. Within this loop, the pop() method removes unverified users one at a time from the end of unconfirmed_users 3. 
+# Because Candace is last in the unconfirmed_users list, her name will be the first to be removed, assigned to current_user, and added to the confirmed_users list 4. 
+# Next is Brian, then Alice.
+
+
+# Removing All Instances of Specific Values from a List
+pets = ['dog', 'cat', 'dog', 'goldfish', 'cat', 'rabbit', 'cat']
+print(pets)
+
+while 'cat' in pets:
+    pets.remove('cat')
+
+print(pets)
+
+# We start with a list containing multiple instances of 'cat'. After printing
+# the list, Python enters the while loop because it finds the value 'cat' in the list
+# at least once. Once inside the loop, Python removes the first instance of 'cat',
+# returns to the while line, and then reenters the loop when it finds that 'cat' is
+# still in the list. It removes each instance of 'cat' until the value is no longer in
+# the list, at which point Python exits the loop and prints the list again:
+
+# Filling a Dictionary with User Input
+
+responses = {}
+# Set a flag to indicate that polling is active
+polling_active = True
+
+while polling_active:
+    # Prompt for the person;s name and response.
+    name = input("\nWhat is your name? ")
+    response = input("Which mountain would you like to climb someday? ")
+
+    # Store the response in the dictionary.
+    responses[name] = response
+
+    # Find out if anyone else is going to take the poll.
+    repeat = input("Would you like to let another person respond? (yes/no) ")
+    if repeat == 'no':
+        polling_active = False
+
+    # Polling is complete. Show the results
+    print("\n--- Poll Results ---")
+    for name, response in responses.items():
+        print(f"{name} would like to climb {response}")
+
+
+
+
+
+
+
+
+
