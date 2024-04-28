@@ -67,7 +67,6 @@ while True:
         print("the ticket is $10")
     else: 
         print("your ticket is $15")
-        
 
 
 
@@ -126,8 +125,49 @@ for finished in finished_sandwiches:
 # 'pastrami' from sandwich_orders. Make sure no pastrami sandwiches end up
 # in finished_sandwiches.
 
+sandwich_orders = ['pastrami','grilled cheese', 'turkey','pastrami', 'tuna', 'chicken', 'chicken salad', 'pastrami']
+finished_sandwiches = [ ]
+
+print("Unfortunately we've run out of pastrami sandwiches")
+# removing pastrami from the list
+while 'pastrami' in sandwich_orders:
+    sandwich_orders.remove('pastrami')
+
+#takes the sandwich out of the sandwich_orders list and puts it into th finished sandwiches
+while sandwich_orders:
+    orders = sandwich_orders.pop()
+    
+    print(f"I made your {orders.title()} sandwich!")
+    finished_sandwiches.append(orders)
+    
+print(f"these are all the order's I've completed: ")    
+for finished in finished_sandwiches:
+   print(f" {finished.title()}")
+
 
 
 # 7-10. Dream Vacation: Write a program that polls users about their dream vacation.
 # Write a prompt similar to If you could visit one place in the world, where
 # would you go? Include a block of code that prints the results of the poll.
+
+responses = { }
+
+prompt = "If you could visit one place in the world, where would you go? "
+
+polling_active = True
+
+while polling_active:
+    name = input("What is your name? ")
+# ask the user a question
+    question = prompt
+    response = input(prompt)
+#stores the response
+    responses[name] = response
+# ask if they want to add to the list of dream vacations
+    repeat = input("Do you want to add to the list of Dream vacations? ")
+    if repeat == 'no':
+        polling_active = False
+
+print("Dream Vacation Choices: ")
+for name, response in responses.items():
+    print(f"{name.title()} would like to visit {response.title()}")
