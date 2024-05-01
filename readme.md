@@ -129,3 +129,15 @@ while, a certain condition is true.
 
 Flag
 - acts as a signal to the program.
+
+Function
+- are named blocks of code designed to do one specific job. 
+- When you want to perform a particular task that you’ve
+defined in a function, you call the function responsible
+for it.
+
+Arguments
+- An argument is a piece of information that’s passed from a function call to a function.
+
+Parameters
+- parameter, a piece of information the function needs to do its job.
