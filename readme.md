@@ -138,6 +138,14 @@ for it.
 
 Arguments
 - An argument is a piece of information that’s passed from a function call to a function.
+- You can pass arguments to your functions
+in a number of ways. 
+        - You can use positional arguments, which need to be in
+the same order the parameters were written;
+                - You can get unexpected results if you mix up the order of the arguments in
+                a function call when using positional arguments
+        - keyword arguments, where each argument consists of a variable name and a value; and lists and dictionaries of values.
+                - a name-value pair that you pass to a function. You directly associate the name and the value within the argument, so when you pass the argument to the function, there’s no confusion
 
 Parameters
 - parameter, a piece of information the function needs to do its job.
