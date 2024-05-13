@@ -260,3 +260,95 @@ print(musician)
 # we’re using a middle name, however, we have to make sure the middle
 # name is the last argument passed so Python will match up the positional
 # arguments correctly 3.
+
+# Returning a Dictionary
+
+def build_person(first_name, last_name):
+    """Return a dictionary of informatiion about a person."""
+    person = {'first': first_name, 'last': last_name}
+    return person
+
+musician = build_person('jimi', 'hendrix')
+print(musician)
+
+# The function build_person() takes in a first and last name, and puts
+# these values into a dictionary 1. The value of first_name is stored with the
+# key 'first', and the value of last_name is stored with the key 'last'. Then,
+# the entire dictionary representing the person is returned 2. The return
+# value is printed 3 with the original two pieces of textual information now
+# stored in a dictionary
+
+# You can easily extend this function to accept optional values like a middle name, an age, an occupation, or any other information you want to store about a person.
+
+def build_person(first_name, last_name, age=None):
+    """Return a dictionary of information about a person."""
+    person = {'first': first_name, 'last': last_name}
+    if age:
+        person['age'] = age
+    return person
+
+musician = build_person('jimi', 'hendrix', age=27)
+print(musician)
+
+# We add a new optional parameter age to the function definition and assign the parameter the special value None, which is used when a variable has no specific value assigned to it. 
+# You can think of None as a placeholder value. 
+# In conditional tests, None evaluates to False. If the function call includes a value for age, that value is stored in the dictionary.
+# This function always stores a person’s name, but it can also be modified to store any other information you want about a person.
+
+
+# using a Function with a while loop 
+
+def get_formatted_name(first_name, last_name):
+    """Return a full name, neatly formatted."""
+    full_name = f"{first_name} {last_name}"
+    return full_name.title()
+
+#This is an ifinte loop!
+while True:
+    print("\nPlease tell me your name:")
+    f_name = input("First name: ")
+    l_name = input('Last name: ')
+
+    formatted_name = get_formatted_name(f_name, l_name)
+    print(f"\nHello, {formatted_name}!")
+
+
+
+# For this example, we use a simple version of get_formatted_name() that doesn’t involve middle names. 
+# The while loop asks the user to enter their name, and we prompt for their first and last name separately 1.
+# But there’s one problem with this while loop: We haven’t defined a quit condition. 
+# Where do you put a quit condition when you ask for a series of
+# inputs? We want the user to be able to quit as easily as possible, so each
+# prompt should offer a way to quit. The break statement offers a straightforward
+# way to exit the loop at either prompt
+
+def get_formatted_name(first_name, last_name):
+    """Return a full name, neatly formatted."""
+    full_name = f"{first_name} {last_name}"
+    return full_name.title()
+
+while True: 
+    print("\nPlease tell me your name:")
+    print("(enter 'q' at any time to quit)")
+
+    f_name = input("First name: ")
+    if f_name == 'q':
+        break
+
+    l_name = input("Last name: ")
+    if l_name == 'q':
+        break
+
+    formatted_name = get_formatted_name(f_name, l_name)
+    print(f"Hello, {formatted_name}")
+
+
+
+
+
+
+
+
+
+
+
