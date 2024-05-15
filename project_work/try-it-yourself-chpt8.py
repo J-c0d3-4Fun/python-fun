@@ -60,3 +60,66 @@ def describe_city(city, country='united states'):
 describe_city(city='dhaka', country='bangladesh')
 describe_city(city='salvador', country='brazil')
 describe_city(city='rome', country='italy')
+
+
+# 8-6. City Names: Write a function called city_country() that takes in the name
+# of a city and its country. The function should return a string formatted like this:
+# "Santiago, Chile"
+# Call your function with at least three city-country pairs, and print the values
+# that are returned.
+
+def city_country(city, country):
+    """Describes the city and country"""
+    cityandcountry = f"{city}, {country}"
+    return cityandcountry.title()
+
+describe = city_country('dhaka', 'bangladesh')
+print(describe)
+
+describe = city_country('slavador', 'brazil')
+print(describe)
+
+describe = city_country('rome', 'italy')
+print(describe)
+
+
+# 8-7. Album: Write a function called make_album() that builds a dictionary describing a music album. The function should take in an artist name and an album title, and it should return a dictionary containing these two pieces of information. Use the function to make three dictionaries representing different albums. Print each return value to show that the dictionaries are storing the album information correctly.
+# Use None to add an optional parameter to make_album() that allows you to store the number of songs on an album. If the calling line includes a value for the number of songs, add that value to the album’s dictionary. Make at least one new function call that includes the number of songs on an album.
+def make_album(artist, title, no_songs=None):
+    """list artist, album and number of song son the album"""
+    if no_songs:
+        album = {'artist name': artist, 'album title': title, 'number of songs': no_songs}
+    else:
+        album = {'artist name': artist, 'album title': title}
+    return album
+
+first_album = make_album('tupac', 'all eyes on me')
+print(first_album)
+
+second_album = make_album('future', 'dirty sprite 2')
+print(second_album)
+
+third_album = make_album('prince', 'purple rain', 9)
+print(third_album)
+# 8-8. User Albums: Start with your program from Exercise 8-7. Write a while loop that allows users to enter an album’s artist and title. Once you have that information, call make_album() with the user’s input and print the dictionary that’s created. Be sure to include a quit value in the while loop.
+def make_album(artist, title, no_songs=None):
+    """list artist, album and number of song son the album"""
+    if no_songs:
+        album = {'artist name': artist, 'album title': title, 'number of songs': no_songs}
+    else:
+        album = {'artist name': artist, 'album title': title}
+    return album
+
+while True:
+    artist = input('Who is your favorite artist?: ')
+    if artist == 'q':
+        break
+    title = input("What is your favorite album by them?: ")
+    if title == 'q':
+        break
+    no_songs = input("What is your favorite song from the album?: ")
+    if no_songs == 'q':
+        break
+
+    fave_artist_album = make_album(artist, title, no_songs)
+    print(fave_artist_album)

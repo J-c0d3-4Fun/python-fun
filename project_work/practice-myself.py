@@ -25,4 +25,3 @@ while active:
 print("Below are the results")
 for name, response in responses.items():
     print(f"{name.title()} favorite food is {response}")
-
