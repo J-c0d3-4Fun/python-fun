@@ -388,6 +388,79 @@ for completed_model in completed_models:
 # models. When the loop is finished running, a list of the designs that have
 # been printed is displayed
 
+# We can reorganize this code by writing two functions, each of which
+# does one specific job.
+
+def print_models(unprinted_designs, completed_models):
+    """Simulate printing each design, until none are left
+    Move eah designe to completed_models after printing.
+    """
+    while unprinted_desings:
+        current_design = unprinted_designs.pop()
+        print(f"Printing model: {current_design}")
+        completed_models.append(current_dsign)
+
+def show_completed_models(completed_models):
+    """Show all the m odels that were printed."""
+    print("\nThe following models have been printed:")
+    for completed_model in completed_models:
+        print(completed_model)
+
+unprinted_desings = ['phone case', 'robot pendant', 'dodecahedron']
+completed_models = []
+
+print_models(unprinted_designs, completed_models)
+show_completed_models(completed_models)
+
+
+# We define the function print_models() with two parameters: a list of designs that need to be printed and a list of completed models 1. Given these two lists, 
+# the function simulates printing each design by emptying the list of unprinted designs and filling up the list of completed models.
+# We then define the function show_completed_models() with one parameter: the list of completed models 2. 
+# Given this list, show_completed_models() displays the name of each model that was printed.
+# This program has the same output as the version without functions, but the code is much more organized. 
+# The code that does most of the work has been moved to two separate functions, which makes the main part of the program easier to understand.
+
+
+# This example also demonstrates the idea that every function should
+# have one specific job. The first function prints each design, and the second
+# displays the completed models. This is more beneficial than using one function
+# to do both jobs. If you’re writing a function and notice the function
+# is doing too many different tasks, try to split the code into two functions.
+# Remember that you can always call a function from another function,
+# which can be helpful when splitting a complex task into a series of steps.
+
+
+# Preventing a Function from Modifying
+# Sometimes you’ll want to prevent a function from modifying a list
+# In this case, you can address this issue by passing the function a copy
+# of the list, not the original. Any changes the function makes to the list will
+# affect only the copy, leaving the original list intact.
+# You can send a copy of a list to a function like this:
+
+function_name(list_name[:])
+
+# The slice notation [:] makes a copy of the list to send to the function.
+
+
+# Even though you can preserve the contents of a list by passing a copy
+# of it to your functions, you should pass the original list to functions unless
+# you have a specific reason to pass a copy. It’s more efficient for a function to
+# work with an existing list, because this avoids using the time and memory
+# needed to make a separate copy. This is especially true when working with
+# large lists.
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
