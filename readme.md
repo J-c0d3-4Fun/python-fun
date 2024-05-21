@@ -149,3 +149,13 @@ the same order the parameters were written;
 
 Parameters
 - parameter, a piece of information the function needs to do its job.
+
+
+Slice Notation
+- The slice notation [:] makes a copy of the list to send to the function.
+
+
+
+
+
+

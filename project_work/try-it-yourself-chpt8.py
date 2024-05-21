@@ -123,3 +123,30 @@ while True:
 
     fave_artist_album = make_album(artist, title, no_songs)
     print(fave_artist_album)
+
+
+
+
+
+
+# 8-9. Messages: Make a list containing a series of short text messages. 
+# Pass the list to a function called show_messages(), which prints each text message.
+
+
+def show_messages(messages):
+    """Prints the message from the list"""
+    for message in messages:
+        print(message)
+
+unread_messages = ['Hey how are you?', 'My flight is at 6:30pm can you still pick me up?', 'will be at your house in 5 minutes']
+show_messages(unread_messages)
+
+
+# 8-10. Sending Messages: Start with a copy of your program from Exercise 8-9. 
+# Write a function called send_messages() that prints each text message and moves each message to a new list called sent_messages as it’s printed. 
+# After calling the function, print both of your lists to make sure the messages were moved correctly.
+
+
+# 8-11. Archived Messages: Start with your work from Exercise 8-10. 
+# Call the function send_messages() with a copy of the list of messages. 
+# After calling the function, print both of your lists to show that the original list has retained its messages
