@@ -151,11 +151,6 @@ def send_messages(unread_message, messages):
         print(f"You missed this message: {read_messages}")
         messages.append(read_messages)
 
-# def show_messages(messages):
-#     """Prints the message from the list"""
-#     for message in messages:
-#         print(message)
-
 
 unread_messages = ['Hey how are you?', 'My flight is at 6:30pm can you still pick me up?', 'will be at your house in 5 minutes']
 sent_messages = []
@@ -167,3 +162,17 @@ print(sent_messages)
 # 8-11. Archived Messages: Start with your work from Exercise 8-10. 
 # Call the function send_messages() with a copy of the list of messages. 
 # After calling the function, print both of your lists to show that the original list has retained its messages
+
+def send_messages(unread_message, messages):
+    while unread_message:
+        read_messages = unread_message.pop()
+        print(f"You missed this message: {read_messages}")
+        messages.append(read_messages)
+
+
+unread_messages = ['Hey how are you?', 'My flight is at 6:30pm can you still pick me up?', 'will be at your house in 5 minutes']
+sent_messages = []
+# show_messages(unread_messages)
+send_messages(unread_messages[:], sent_messages)
+print(unread_messages)
+print(sent_messages)
