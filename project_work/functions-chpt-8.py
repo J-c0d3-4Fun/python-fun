@@ -476,6 +476,70 @@ def make_pizza(*toppings):
 make_pizza('pepperoni')
 make_pizza('mushrooms', 'green peppers', 'extra cheese')
 
+# Mixing Positional and Arbitrary Arguments
+# If you want a function to accept several different kinds of arguments, the
+# parameter that accepts an arbitrary number of arguments must be placed
+# last in the function definition. Python matches positional and keyword
+# arguments first and then collects any remaining arguments in the final
+# parameter.
+
+def make_pizza(size, *toppings):
+    """Summarize the pizza we are about to make."""
+    print(f"\nMaking a {size}-pizza with the following toppings:")
+    for topping in toppings:
+        print(f"- {topping}")
+
+make_pizza(16,'pepperoni')
+make_pizza(12,'mushrooms', 'green peppers', 'extra cheese')
+
+# In the function definition, Python assigns the first value it receives to
+# the parameter size. All other values that come after are stored in the tuple
+# toppings. The function calls include an argument for the size first, followed
+# by as many toppings as needed.
+# Now each pizza has a size and a number of toppings, and each piece of
+# information is printed in the proper place, showing size first and toppings
+# after
+
+
+# NOTE You’ll often see the generic parameter name *args, which collects arbitrary positional arguments like this.
+
+# Using Arbitrary Keyword Arguments
+
+def build_profile(first, last, **user_info):
+    """Build a dictionary containing everything we know about a user."""
+    user_info['first_name'] = first
+    user_info['last_name'] = last
+    return user_info
+
+user_profile = build_profile('albert', 'einstein', location=princeton,field=physics)
+
+print(user_profile)
+
+# The definition of build_profile() expects a first and last name, and then it allows the user to pass in as many name-value pairs as they want. The double asterisks before the parameter **user_info cause Python to create a dictionary called user_info containing all the extra name-value pairs the function receives. Within the function, you can access the key-value pairs in user_info just as you would for any dictionary.
+# In the body of build_profile(), we add the first and last names to the user_info dictionary because we’ll always receive these two pieces of information from the user 1, and they haven’t been placed into the dictionary yet. Then we return the user_info dictionary to the function call line.
+# We call build_profile(), passing it the first name 'albert', the last name 'einstein', and the two key-value pairs location='princeton' and field='physics'. We assign the returned profile to user_profile and print user_profile
+
+# NOTE You’ll often see the parameter name **kwargs used to collect nonspecific keyword
+# arguments.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
