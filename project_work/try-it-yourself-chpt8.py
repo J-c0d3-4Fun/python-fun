@@ -184,9 +184,34 @@ print(sent_messages)
 # items as the function call provides, and it should print a summary of the sandwich
 # that’s being ordered. Call the function three times, using a different number
 # of arguments each time.
+
+def sandwiches(*sandwich):
+    """list what you wnat on your sandwich and print what was ordered"""
+    for order in sandwich:
+        print(f" - {order}")
+    print(f"Is ready for pick up!")
+
+sandwiches("ham", 'wheat bread',"tomato","american cheese")
+sandwiches("turkey", "grilled chicken", "onions", "white bread")
+sandwiches("peanut butter", "strawberry jelly", "wheat bread")
+
+
+
 # 8-13. User Profile: Start with a copy of user_profile.py from page 148. Build a
 # profile of yourself by calling build_profile(), using your first and last names
 # and three other key-value pairs that describe you.
+
+def build_profile(first, last, **user_info):
+    """Build a dictionary containing everything we know about a user."""
+    user_info['first_name'] = first
+    user_info['last_name'] = last
+    return user_info
+
+user_profile = build_profile('Tom', "Jerry", favorite_food='cheese',favorite_color='red', location="Scranton, PA")
+
+print(user_profile)
+
+
 # 8-14. Cars: Write a function that stores information about a car in a dictionary.
 # The function should always receive a manufacturer and a model name. It
 # should then accept an arbitrary number of keyword arguments. Call the function
@@ -195,3 +220,27 @@ print(sent_messages)
 # car = make_car('subaru', 'outback', color='blue', tow_package=True)
 # Print the dictionary that’s returned to make sure all the information was
 # stored correctly.
+
+
+def make_car(manufacturer, model, **options):
+    """Allows you to create your own car from scratch"""
+    options['manufacturer'] = manufacturer
+    options['model'] = model
+    return options
+
+car_ordered = make_car('toyota', '4runner', color='black', feature='blind spot assist', engine='v6')
+
+print(car_ordered)
+
+
+
+
+
+
+
+
+
+
+
+
+
