@@ -232,13 +232,27 @@ car_ordered = make_car('toyota', '4runner', color='black', feature='blind spot a
 
 print(car_ordered)
 
-# 8-15. Printing Models: Put the functions for the example printing_models.py in a separate file called printing_functions.py. Write an import statement at the top of printing_models.py, and modify the file to use the imported functions.
-# 8-16. Imports: Using a program you wrote that has one function in it, store that function in a separate file. Import the function into your main program file, and call the function using each of these approaches:
+# 8-15. Printing Models: Put the functions for the example printing_models.py in a separate file called printing_functions.py. 
+# Write an import statement at the top of printing_models.py, and modify the file to use the imported functions.
+
+# - listed under printing_functions folder
+
+
+
+
+# 8-16. Imports: Using a program you wrote that has one function in it, store that function in a separate file.
+# Import the function into your main program file, and call the function using each of these approaches:
 # import module_name
 # from module_name import function_name
 # from module_name import function_name as fn
 # import module_name as mn
 # from module_name import *
+
+# - listed under printing functions folder 
+
+
+
+
 # 8-17. Styling Functions: Choose any three programs you wrote for this chapter, and make sure they follow the styling guidelines described in this section.
 
 
