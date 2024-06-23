@@ -155,7 +155,19 @@ Slice Notation
 - The slice notation [:] makes a copy of the list to send to the function.
 
 
-
-
+Classes
+- Object-oriented programming (OOP) is one of
+the most effective approaches to writing
+software. 
+- In object-oriented programming,
+you write classes that represent real-world things
+and situations, and you create objects based on these
+classes. 
+- When you write a class, you define the general
+behavior that a whole category of objects can have.
+- Making an object from a class is called instantiation, and you work with
+instances of a class.
+- A function that’s part of a class is a method
+- Variables that are accessible through instances are called attributes.
 
 
