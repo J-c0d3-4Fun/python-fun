@@ -286,7 +286,7 @@ my_new_car.read_odometer()
     def update_odemeter(self,mileage):
     
     def increment_odemeter(self, miles):
-    """ Add the given amount to the odemeter reading."""
+        """ Add the given amount to the odemeter reading."""
     self.odemeter_reading += miles
 
 my_used_car = Car('subura', 'outback', 2019)
@@ -307,22 +307,79 @@ my_used_car.read_odometer()
 # but anyone with access to the program can set the odometer reading to any value by accessing the attribute directly. 
 # Effective security takes extreme attention to detail in addition to basic checks like those shown here
 
+# The __init__() Method for a Child Class
+# When you’re writing a new class based on an existing class, you’ll often
+# want to call the __init__() method from the parent class. This will initialize
+# any attributes that were defined in the parent __init__() method and make
+# them available in the child class.
+
+class Car:
+    """A simple attempt to respresent a car."""
+
+    def __init__(self, make, model, year):
+        """Initialize attributes to describe a car."""
+        self.make = make
+        self.model = model
+        self.year = year
+        self.odometer_reading = 0
+
+    def get_descriptive_name(self):
+        """Return a neatly formatted descriptive name."""
+        long_name = f"{self.year} {self.make} {self.model}"
+        return long_name.title()
+    
+    def read_odometer(self):
+        """Printing a statement showing the car's mileage"""
+        print(f"This car has {self.odometer_reading} miles on it")
+
+class ElectricCar(Car):
+    """Represent aspects of a car, specific to electric vehicles."""
+
+    def __init__(self, make, model, year):
+        """Initialize attributes of the parent class"""
+        super().__init__(make, model, year)
 
 
+my_leaf = ElectricCar("nissan", "leaf", 2024)
+print(my_leaf.get_descriptive_name())
+
+# We start with Car 1. When you create a child class, the parent class must be part of the current file and must appear before the child class in the file.
+# We then define the child class, ElectricCar 2.
+# The name of the parent class must be included in parentheses in the definition of a child class. 
+# The __init__() method takes in the information required to make a Car instance 3.
+# The super() function 4 is a special function that allows you to call a method from the parent class. 
+# This line tells Python to call the __init__() method from Car, which gives an ElectricCar instance all the attributes defined in that method.
+# We make an instance of the ElectricCar class and assign it to my_leaf 5. This line calls the __init__() method defined in ElectricCar, 
+# which in turn tells Python to call the __init__() method defined in the parent class Car.
+
+# Defining Attributes and Methods for the Child Class 
+# Once you have a child class that inherits from a parent class, you can add
+# any new attributes and methods necessary to differentiate the child class
+# from the parent class.
+
+class ElectricCar(Car):
+    """Represents aspects of a car, specific to electric vehicles."""
+    def __init__(self, make, model, year):
+        """
+        Initialize attributes of the parent class. 
+        Then initialize attributes specific to an electric car.
+        """
+        super().__init__(make, model, year)
+        self.battery_size = 40
+    
+    def describe_battery(self):
+        """Print a statement describing the battery size."""
+        print(f"This car has a {self.battery_size}-kwh battery")
 
 
+my_leaf = ElectricCar('nissan', 'leaf', 2024)
+print(my_leaf.get_descriptive_name())
+my_leaf.describe_battery()
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+# We add a new attribute self.battery_size and set its initial value to
+# 40 1. This attribute will be associated with all instances created from the
+# ElectricCar class but won’t be associated with any instances of Car. We also
+# add a method called describe_battery() that prints information about the
+# battery 2. When we call this method, we get a description that is clearly
+# specific to an electric car

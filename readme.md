@@ -169,5 +169,6 @@ behavior that a whole category of objects can have.
 instances of a class.
 - A function that’s part of a class is a method
 - Variables that are accessible through instances are called attributes.
+- The name super comes from a convention of calling the parent class a superclass and the child class a subclass.
 
 
