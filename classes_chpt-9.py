@@ -383,3 +383,65 @@ my_leaf.describe_battery()
 # add a method called describe_battery() that prints information about the
 # battery 2. When we call this method, we get a description that is clearly
 # specific to an electric car
+
+
+# Overriding Methods from Parent Class
+# You can override any method from the parent class that doesn’t fit what you’re trying to model with the child class. 
+# To do this, you define a method in the child class with the same name as the method you want to override in the parent class. 
+# Python will disregard the parent class method and only pay attention to the method you define in the child class.
+# Say the class Car had a method called fill_gas_tank(). This method is meaningless for an all-electric vehicle, so you might want to override this method. 
+# Here’s one way to do that:
+class ElectricCar(Car):
+
+def fill_gas_tank(self):
+    """Electric cars don't have gas tanks!"""
+    print("This car doesn't have a gas tank!")
+
+# Now if someone tries to call fill_gas_tank() with an electric car, Python will ignore the method 
+# fill_gas_tank() in Car and run this code instead. When you use inheritance, 
+# you can make your child classes retain what you need and override anything you don’t need from the parent class.
+
+
+# Instaces as Attributes
+# When modeling something from the real world in code, you may find that you’re adding more and more detail to a class. 
+# You’ll find that you have a growing list of attributes and methods and that your files are becoming lengthy. 
+# In these situations, you might recognize that part of one class can be written as a separate class. 
+# You can break your large class into smaller classes that work together; this approach is called composition.
+# For example, if we continue adding detail to the ElectricCar class, we might notice that
+# we’re adding many attributes and methods specific to the car’s battery. 
+# When we see this happening, we can stop and move those attributes and methods to a separate class called Battery. 
+# Then we can use a Battery instance as an attribute in the ElectricCar class:
+
+class Car:
+--snip--
+    
+class Battery:
+    """A simple attempt to model a battery for can electric car."""
+
+    def __init__(self, battery_size=40):
+        """Initialize the battery's attributes."""
+        self.battery_Size = battery_size
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
