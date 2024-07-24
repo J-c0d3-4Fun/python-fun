@@ -420,9 +420,41 @@ class Battery:
 
     def __init__(self, battery_size=40):
         """Initialize the battery's attributes."""
-        self.battery_Size = battery_size
+        self.battery_size = battery_size
+    
+    def describe_battery(self):
+        """Print a statement describing the battery size."""
+        print(f"This car has a {self.battery_size}--kWh battery.")
 
+class ElectricCar(Car):
+    """Represnt aspects of a car, specific to electric vehicles."""
 
+    def __init__(self, make, model, year):
+        """
+        Initialize attributes of the parent class.
+        Then initialize attributes specific to an electric car.
+        """
+        super().__init__(make, model, year)
+        self.battery = Battery()
+
+my_leaf = ElectricCar('nissan', 'leaf', '2024')
+print(my_leaf.get_descriptive_name())
+my_leaf.battery.describe_battery()
+
+# We define a new class called Battery that doesn’t inherit from any other
+# class. The __init__() method 1 has one parameter, battery_size, in addition
+# to self. This is an optional parameter that sets the battery’s size to 40 if no
+# value is provided. The method describe_battery() has been moved to this
+# class as well 2.
+# In the ElectricCar class, we now add an attribute called self.battery 3.
+# This line tells Python to create a new instance of Battery (with a default size
+# of 40, because we’re not specifying a value) and assign that instance to the
+# attribute self.battery. This will happen every time the __init__() method
+# is called; any ElectricCar instance will now have a Battery instance created
+# automatically.
+# We create an electric car and assign it to the variable my_leaf. When
+# we want to describe the battery, we need to work through the car’s battery
+# attribute
 
 
 
