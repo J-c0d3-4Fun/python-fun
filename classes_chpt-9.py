@@ -561,6 +561,105 @@ my_leaf.battery.get_range()
 
 
 # Importing Multiple Classes from a Module
+# You can import as many classes as you need into a program file.
+
+from car import Car, ElectricCar
+
+my_mustang = Car('ford', 'mustang', 2024)
+print(my_mustang.get_descriptive_name())
+my_leaf = ElectricCar('nissan', 'leaf', 2024)
+print(my_leaf.get_descriptive_name())
+
+
+# You import multiple classes from a module by separating each class with a comma
+# Once you’ve imported the necessary classes, 
+# you’re free to make as many instances of each class as you need.
+
+
+# Importing an Entire Module 
+# You can also import an entire module and then access the classes you need using dot notation. 
+# This approach is simple and results in code that is easy to read. 
+# Because every call that creates an instance of a class includes the module name, 
+# you won’t have naming conflicts with any names used in the current file.
+
+# Here’s what it looks like to import the entire car module and then
+# create a regular car and an electric car:
+
+import car
+
+my_mustang = car.Car('ford', 'mustang', 2024)
+print(my_mustang.get_descriptive_name())
+
+my_leaf = car.ElectricCar('nissan', 'leaf', 2024)
+print(my_leaf.get_descriptive_name())
+
+# First we import the entire car module. We then access the classes
+# we need through the module_name.ClassName syntax.
+
+
+# Importing All Classes from a Module 
+
+# You can import every class from a module using the following syntax
+from module_name import *
+
+# This method is not recommended for two reasons. First, it’s helpful to be
+# able to read the import statements at the top of a file and get a clear sense of
+# which classes a program uses. With this approach it’s unclear which classes
+# you’re using from the module. This approach can also lead to confusion
+# with names in the file. If you accidentally import a class with the same name
+# as something else in your program file, you can create errors that are hard
+# to diagnose. I show this here because even though it’s not a recommended
+# approach, you’re likely to see it in other people’s code at some point.
+# If you need to import many classes from a module, you’re better off
+# importing the entire module and using the module_name.ClassName syntax.
+# You won’t see all the classes used at the top of the file, but you’ll see clearly
+# where the module is used in the program. You’ll also avoid the potential
+# naming conflicts that can arise when you import every class in a module.
+
+
+# Importing a Module into a Module 
+# When you store your classes in several modules, you
+# may find that a class in one module depends on a class in another module.
+# When this happens, you can import the required class into the first module.
+
+
+
+# Using Aliases
+
+# As you saw in Chapter 8, aliases can be quite helpful when using modules to organize your projects’ code. 
+# You can use aliases when importing classes as well.
+# As an example, consider a program where you want to make a bunch of electric cars. 
+# It might get tedious to type (and read) ElectricCar over and over again. 
+# You can give ElectricCar an alias in the import statement:
+
+from electric_car import ElectricCar as EC
+
+# Now you can use this alias whenever you want to make an electric car:
+
+my_leaf = EC('nissan', 'leaf', 2024)
+
+# You can also give a module an alias.
+
+import electric_car as ec
+
+# Now you can use this module alias with the full class name:
+
+my_leaf = ec.ElectricCar('nissan', 'leaf', 2024)
+
+# Finding Your Own Workflow
+# When you’re starting out, keep your code structure simple. Try doing
+# everything in one file and moving your classes to separate modules once everything
+# is working. If you like how modules and files interact, try storing your
+# classes in modules when you start a project. Find an approach that lets you
+# write code that works, and go from there
+
+
+
+
+
+
+
+
 
 
 
