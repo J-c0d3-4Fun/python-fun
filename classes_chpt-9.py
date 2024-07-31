@@ -654,7 +654,9 @@ my_leaf = ec.ElectricCar('nissan', 'leaf', 2024)
 # write code that works, and go from there
 
 
-
+# The Python Standard Library
+# You can use any function or class in the standard library by
+# including a simple import statement at the top of your file.
 
 
 
