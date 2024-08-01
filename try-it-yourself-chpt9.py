@@ -441,7 +441,54 @@ my_leaf.battery.get_range()
 # Write a method called roll_die() that prints a random number between 1 and the number of sides the die has. 
 # Make a 6-sided die and roll it 10 times.
 # Make a 10-sided die and a 20-sided die. Roll each die 10 times.
+from random import randint
 
+class Die:
+    """ a 6 sided die"""
+    def __init__(self, sides=6):
+        self.sides = sides
+    
+    def roll_die(self):
+        roll = randint(1, self.sides)
+        print(roll)
+
+rolling = Die()
+rolling.roll_die()
+rolling.roll_die()
+rolling.roll_die()
+rolling.roll_die()
+rolling.roll_die()
+rolling.roll_die()
+rolling.roll_die()
+rolling.roll_die()
+rolling.roll_die()
+rolling.roll_die()
+rolling.roll_die()
+rolling.roll_die()
+
+rolling = Die(sides=10)
+rolling.roll_die()
+rolling.roll_die()
+rolling.roll_die()
+rolling.roll_die()
+rolling.roll_die()
+rolling.roll_die()
+rolling.roll_die()
+rolling.roll_die()
+rolling.roll_die()
+rolling.roll_die()
+
+rolling = Die(sides=20)
+rolling.roll_die()
+rolling.roll_die()
+rolling.roll_die()
+rolling.roll_die()
+rolling.roll_die()
+rolling.roll_die()
+rolling.roll_die()
+rolling.roll_die()
+rolling.roll_die()
+rolling.roll_die()
 
 
 # 9-14. Lottery: Make a list or tuple containing a series of 10 numbers and 5 letters. 
