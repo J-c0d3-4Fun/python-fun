@@ -495,6 +495,16 @@ rolling.roll_die()
 # Randomly select 4 numbers or letters from the list and print a message saying that any ticket matching these 4 numbers or letters wins a prize.
 
 
+from random import choice
+
+lottery = [0,1,2,3,4,5,6,7,8,9,'A','B','C','D','E']
+fc = choice(lottery)
+sc = choice(lottery)
+tc = choice(lottery)
+foc = choice(lottery)
+
+message = print(f"Any ticket that matches these 4 numbers and letters win a prize! 
+                \n:{fc}{sc}{tc}{foc}")
 
 # 9-15. Lottery Analysis: You can use a loop to see how hard it might be to win the kind of lottery you just modeled. 
 # Make a list or tuple called my_ticket. Write a loop that keeps pulling numbers until your ticket wins. 
