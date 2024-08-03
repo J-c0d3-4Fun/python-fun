@@ -509,7 +509,32 @@ message = print(f"Any ticket that matches these 4 numbers and letters win a priz
 # 9-15. Lottery Analysis: You can use a loop to see how hard it might be to win the kind of lottery you just modeled. 
 # Make a list or tuple called my_ticket. Write a loop that keeps pulling numbers until your ticket wins. 
 # Print a message reporting how many times the loop had to run to give you a winning ticket.
+from random import choice
 
+lottery = [0,1,2,3,4,5,6,7,8,9,'A','B','C','D','E']
+fc = choice(lottery)
+sc = choice(lottery)
+tc = choice(lottery)
+foc = choice(lottery)
+
+winning_ticket = f"{fc}{sc}{tc}{foc}"
+
+my_ticket = "A15D"
+
+count = 0
+
+while winning_ticket != my_ticket:
+    print(count)
+    count += 1
+    fc = choice(lottery)
+    sc = choice(lottery)
+    tc = choice(lottery)
+    foc = choice(lottery)
+    winning_ticket = f"{fc}{sc}{tc}{foc}"
+
+        
+    
+        
 
 
 # 9-16. Python Module of the Week: One excellent resource for exploring the Python standard library is a site called Python Module of the Week. 
