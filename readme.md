@@ -175,3 +175,7 @@ The Python Standard Library
 - The Python standard library is a set of modules included with every Python installation.
 
 
+Exceptions
+- special objects Python creates to manage errors that arise while a program is running.
+-
+

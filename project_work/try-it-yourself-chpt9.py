@@ -531,6 +531,7 @@ while winning_ticket != my_ticket:
     tc = choice(lottery)
     foc = choice(lottery)
     winning_ticket = f"{fc}{sc}{tc}{foc}"
+print(f"you have the winning ticket: {winning_ticket}")
 
         
     
