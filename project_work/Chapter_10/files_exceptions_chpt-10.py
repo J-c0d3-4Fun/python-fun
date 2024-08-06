@@ -96,7 +96,129 @@ path = Path('home/eric/data_files/text_files/filename.txt')
 
 # Using absolute paths, you can read files from any location on your system.
 
+
+# NOTE Windows systems use a backslash (\) instead of a forward slash (/) when displaying file paths, 
+# but you should use forward slashes in your code, even on Windows. 
+# The pathlib library will automatically use the correct representation of 
+# the path when it interacts with your system, or any user’s system.
+
 # Accessing a File's Line
+# You can use the splitlines() method to turn a long string into a set of
+# lines, and then use a for loop to examine each line from a file, one at a time
+
+from pathlib import Path
+
+path = Path('pi_digits.txt')
+contents = path.read_text()
+
+lines = contents.splitlines()
+for line in lines:
+    print(line)
+
+
+# We start out by reading the entire contents of the file, as we did earlier. 
+# If you’re planning to work with the individual lines in a file, you
+# don’t need to strip any whitespace when reading the file. The splitlines()
+# method returns a list of all lines in the file, and we assign this list to the
+# variable lines. We then loop over these lines and print each one
+
+
+# Working with a File's Contents
+# After you’ve read the contents of a file into memory, you can do whatever
+# you want with that data
+
+from pathlib import Path
+
+path = Path('pi_digits.txt')
+contents = path.read_text()
+
+lines = contents.splitlines()
+pi_string = ''
+for line in lines:
+    pi_string += line
+
+print(pi_string)
+print(len(pi_string))
+
+# We start by reading the file and storing each line of digits in a list, just
+# as we did in the previous example. We then create a variable, pi_string,
+# We write a loop that adds each line of digits to
+# pi_string 1. We print this string, and also show how long the string is
+
+
+
+# The variable pi_string contains the whitespace that was on the left side of the digits in each line, 
+# but we can get rid of that by using lstrip() on each line
+
+for line in lines:
+    pi_string += line.lstrip()
+
+
+print(pi_string)
+print(len(pi_string))
+
+
+# NOTE When Python reads from a text file, it interprets all text in the file as a string. 
+# If you read in a number and want to work with that value in a numerical context, 
+# you’ll have to convert it to an integer using the int() function or a float using the float() function.
+
+# Large Files: One Million Digits
+
+from pathlib import Path
+
+path = Path('pi_million_digits.txt')
+contents = path.read_text()
+
+lines = contents.splitlines()
+pi_string = ''
+for line in lines:
+    pi_string += line.lstrip()
+
+print(f"{pi_string[:52]}...")
+print(len(pi_string))
+
+# Python has no inherent limit to how much data you can work with; you
+# can work with as much data as your system’s memory can handle.
+
+# NOTE To run this program (and many of the examples that follow), you’ll need to download
+# the resources available at https://ehmatthes.github.io/pcc_3e.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
