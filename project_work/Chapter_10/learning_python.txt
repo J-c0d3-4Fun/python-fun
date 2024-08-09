@@ -1,0 +1,2 @@
+In Python you can create classes 
+In Python you can use for loops
