@@ -177,5 +177,7 @@ The Python Standard Library
 
 Exceptions
 - special objects Python creates to manage errors that arise while a program is running.
-
+- Whenever an error occurs that makes Python unsure of what to do next, it creates an exception object.
+- Exceptions are handled with try-except blocks
+- A try-except block asks Python to do something, but it also tells Python what to do if an exception is raised.
 

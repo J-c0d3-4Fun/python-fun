@@ -72,8 +72,35 @@ print(len(pi_string))
 
 
 # 10-4. Guest: Write a program that prompts the user for their name. When they respond, write their name to a file called guest.txt.
+from pathlib import Path
+
+prompt = input("What is your name?: ")
+
+path = Path('guest.txt')
+path.write_text(prompt) 
+
+
+
+
+
+
 # 10-5. Guest Book: Write a while loop that prompts users for their name. Collect all the names that are entered, 
 # and then write these names to a file called guest_book.txt. Make sure each entry appears on a new line in the file.
+from pathlib import Path
+
+contents = ''
+
+while True:
+    prompt = input("What is your name?: ")
+    if prompt == '':
+        break
+    contents += prompt + "\n"
+path = Path("guest_book.txt")
+path.write_text(contents)
+
+
+
+
 
 
 

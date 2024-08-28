@@ -232,13 +232,38 @@ path.write_text(contents)
 # pathlib.
 
 
+# Exceptions
+
+# Python uses special objects called exceptions to manage errors that arise during a program’s execution. 
+# Whenever an error occurs that makes Python unsure of what to do next, it creates an exception object. 
+# If you write code that handles the exception, the program will continue running. If you don’t handle the exception, 
+# the program will halt and show a traceback, which includes a report of the exception that was raised.
+# Exceptions are handled with try-except blocks. A try-except block asks Python to do something, but it also tells 
+# Python what to do if an exception is raised. When you use try-except blocks, your programs will continue running even if things start to go wrong. 
+# Instead of tracebacks, which can be confusing for users to read, users will see friendly error messages that you’ve written.
 
 
+# Handling the ZeroDivisionError Exception
+
+# It’s impossible to divide a number by zero
+
+print(5/0)
+
+# Python can’t do this, so we get a traceback:
+
+Traceback (most recent call last):
+    File "division_calculator.py", line 1, in <module>
+        print(5/0)
+              ~^~
+ZeroDivisionError: division by zero
+
+# The error reported in the traceback, ZeroDivisionError, is an exception object 1. Python creates this kind of object in 
+# response to a situation where it can’t do what we ask it to. When this happens, 
+# Python stops the program and tells us the kind of exception that was raised. We can use this information to modify our program. 
+# We’ll tell Python what to do when this kind of exception occurs; that way, if it happens again, we’ll be prepared.
 
 
-
-
-
+# Using try-except Blocks
 
 
 
