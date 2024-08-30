@@ -180,4 +180,9 @@ Exceptions
 - Whenever an error occurs that makes Python unsure of what to do next, it creates an exception object.
 - Exceptions are handled with try-except blocks
 - A try-except block asks Python to do something, but it also tells Python what to do if an exception is raised.
-
+- The only code that should go in a try block is code that might cause an
+exception to be raised. 
+- Sometimes you’ll have additional code that should
+run only if the try block was successful; this code goes in the else block.
+- The except block tells Python what to do in case a certain exception arises
+when it tries to run the code in the try block.

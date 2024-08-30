@@ -316,6 +316,152 @@ while True:
 
 
 
+# The else Block 
+
+--snip--
+
+while True:
+    --snip--
+    if the second number == 'q':
+        break
+    try:
+        answer = int(first_number)/ int(second_number)
+    except ZeroDivisionError:
+        print("You can't divide by 0!")
+    else:
+        print(answer)
+
+# We ask Python to try to complete the division operation in a try block , which includes only the code that might cause an error. 
+# Any code that depends on the try block succeeding is added to the else block. In this case, if the division operation is 
+# successful, we use the else block to print the result.
+# The except block tells Python how to respond when a ZeroDivisionError arises. If the try block doesn’t succeed because of a division-by-zero error
+# we print a friendly message telling the user how to avoid this kind of error.
+# The program continues to run, and the user never sees a traceback
+
+
+
+# The only code that should go in a try block is code that might cause an
+# exception to be raised. Sometimes you’ll have additional code that should
+# run only if the try block was successful; this code goes in the else block.
+# The except block tells Python what to do in case a certain exception arises
+# when it tries to run the code in the try block.
+
+
+
+
+# Handling the FileNotFoundError Exception 
+
+# One common issue when working with files is handling missing files. The
+# file you’re looking for might be in a different location, the filename might
+# be misspelled, or the file might not exist at all. You can handle all of these
+# situations with a try-except block.
+
+from pathlib import Path
+
+path = Path('alice.txt')
+contents = path.read_text(encoding='utf-8')
+
+# Note that we’re using read_text() in a slightly different way here than
+# what you saw earlier. The encoding argument is needed when your system’s
+# default encoding doesn’t match the encoding of the file that’s being read.
+# This is most likely to happen when reading from a file that wasn’t created
+# on your system.
+
+
+
+# Python can’t read from a missing file, so it raises an exception
+Traceback (most recent call last):
+    File "alice.py", line 4, in <module>
+        contents = path.read_text(encoding='utf-8')
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    File "/.../pathlib.py", line 1056, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    File "/.../pathlib.py", line 1042, in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'alice.txt'
+
+
+
+# This is a longer traceback than the ones we’ve seen previously, so let’s look at how you can make sense of more complex tracebacks. 
+# It’s often best to start at the very end of the traceback. On the last line, we can see that a FileNotFoundError exception was raised 3. 
+# This is important because it tells us what kind of exception to use in the except block that we’ll write.
+# Looking back near the beginning of the traceback 1, we can see that the error occurred at line 4 in the file alice.py. 
+# The next line shows the line of code that caused the error 2. The rest of the traceback shows some code from the libraries that are 
+# involved in opening and reading from files. You don’t usually need to read through or understand all of these lines in a traceback.
+# To handle the error that’s being raised, the try block will begin with the line that was identified as problematic in the traceback. 
+# In our example, this is the line that contains read_text()
+
+
+from pathlib import Path
+
+path = Path('alice.txt')
+try:
+    contents = path.read_text(encoding='utf-8')
+except FileNotFoundError:
+    print(f"Sorry, the file {path} does not exist")
+
+# In this example, the code in the try block produces a FileNotFoundError, so we write an except block that matches that error 1. 
+# Python then runs the code in that block when the file can’t be found, and the result is a friendly error message instead of a traceback
+
+# Analyzing Text
+
+# You can analyze text files containing entire books. Many classic works of literature are available as simple text files because they are in the public domain.
+
+# Let’s pull in the text of Alice in Wonderland and try to count the number
+# of words in the text. To do this, we’ll use the string method split(), which
+# by default splits a string wherever it finds any whitespace
+
+from pathlib import Path
+
+path = Path('alice.txt')
+try:
+    contents = path.read_text(encoding='utf-8')
+except FileNotFoundError:
+    print(f"Sorry, the file {path} does not exist.")
+else:
+    # Count the approximate number of words in the file:
+    words = contents.split()
+    num_words = len(words)
+    print(f"The file {path} has about {num_words} words.")
+
+# I moved the file alice.txt to the correct directory, so the try block will
+# work this time. We take the string contents, which now contains the entire
+# text of Alice in Wonderland as one long string, and use split() to produce a
+# list of all the words in the book 1. Using len() on this list 2 gives us a good
+# approximation of the number of words in the original text. Lastly, we print
+# a statement that reports how many words were found in the file. This code
+# is placed in the else block because it only works if the code in the try block
+# was executed successfully.
+
+
+# Working with Multiple Files 
+
+# Let’s add more books to analyze, but before we do, let’s move the bulk of
+# this program to a function called count_words(). This will make it easier to
+# run the analysis for multiple books
+
+from pathlib import Path
+
+def count_words(path):
+    """Count the approximate number of words in a file."""
+    try:
+        contents = path.read_text(encoding='utf-8')
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
