@@ -448,12 +448,75 @@ def count_words(path):
     """Count the approximate number of words in a file."""
     try:
         contents = path.read_text(encoding='utf-8')
+    except FileExistsError:
+        print(f"Sorry, the file {path} does not exist.")
+    else:
+        # Count the approximate number of words
+        words = contents.split()
+        num_words = len(words)
+        print(f"The file {path}has about {num_words} words.")
+path = Path('alice.txt')
+count_words(path)
+
+
+# Most of this code is unchanged. It’s only been indented, and moved into the body of count_words(). 
+# It’s a good habit to keep comments up to date when you’re modifying a program, so the comment 
+# has also been changed to a docstring and reworded slightly.
+
+# Now we can write a short loop to count the words in any text we want to analyze.
+
+from pathlib import Path
+def count_words(filename):
+    -- snip --
+filenames = ['alice.txt', 'siddharatha.txt', 'moby_dick.txt', 'little_women.txt']
+
+for filename in filenames:
+    path = Path(filename)
+    count_words(path)
+
+
+# erted to a Path object 1, before the call to count_words(). The missing 
+# siddhartha.txt file has no effect on the rest of the program’s execution
 
 
 
+# Using the try-except block in this example provides two significant advantages. 
+# We prevent our users from seeing a traceback, and we let the program continue 
+# analyzing the texts it’s able to find.
 
 
+# Failing Silently
 
+# you don’t need to report every exception you catch. Sometimes, you’ll want the program to fail silently 
+# when an exception occurs and continue on as if nothing happened. 
+# To make a program fail silently, you write a try block as usual, but you explicitly tell Python to do
+# nothing in the except block. Python has a pass statement that tells it to
+# do nothing in a block
+
+
+def count_Words(path):
+    """Count the approximate number of words in a file"""
+
+    try:
+        --snip--
+    except FileNotFoundError:
+        pass
+    else:
+        --snip--
+
+
+        
+# The only difference between this listing and the previous one is the pass
+# statement in the except block. Now when a FileNotFoundError is raised, the
+# code in the except block runs, but nothing happens. No traceback is produced,
+# and there’s no output in response to the error that was raised. Users
+# see the word counts for each file that exists, but they don’t see any indication
+# that a file wasn’t found
+
+
+# The pass statement also acts as a placeholder. It’s a reminder that
+# you’re choosing to do nothing at a specific point in your program’s execution
+# and that you might want to do something there later.
 
 
 
