@@ -119,20 +119,72 @@ adding()
 
 # 10-7. Addition Calculator: Wrap your code from Exercise 10-6 in a while loop so the user can continue entering numbers, even if they make a mistake and enter text instead of a number.
  
-
+print("I can add numbers for you!")
+ 
+def adding():
+    while True:
+            try:
+                first = input("What is the first number you want to add?: ")
+                second = input("What is the second number you want to add?: ")
+                addition = int(first) + int(second)
+            except ValueError:
+                print("That is not an interger!")
+                break
+            else:
+                print(f"The answer is {addition}!")
+            
+adding()
  
  
  
 # 10-8. Cats and Dogs: Make two files, cats.txt and dogs.txt. Store at least three names of cats in the first file and three names of dogs in the second file. Write a program that tries to read 
 # these files and print the contents of the file to the screen. Wrap your code in a try-except block to catch the FileNotFound error, and print a friendly message if a file is missing. 
-# Move one of the files to a dif-ferent location on your system, and make sure the code in the except block executes properly.
+# Move one of the files to a different location on your system, and make sure the code in the except block executes properly.
+from pathlib import Path
+
+def reader():
+    try:
+        filenames = ['cats.txt', 'dogs.txt']
+        for filename in filenames:
+            path = Path(filename)
+            contents = path.read_text()
+            print(contents)
+    except FileNotFoundError:
+        print('We cannot find this file')
+reader()
+
+### Option for one file
+from pathlib import Path
+
+def reading():
+    try:
+        path = Path('cats.txt')
+        contents = path.read_text()
+    except FileNotFoundError:
+        print('We cannot find this file')
+    else:
+        print(contents)
+
+reading()
 
 
+### I created a more flexible program that allows the user to input any file
+from pathlib import Path
+
+def reading():
+    try:
+        q1 = input('What file are you looking for?')
+        path = Path(q1)
+        contents = path.read_text()
+    except FileNotFoundError:
+        print('We cannot find this file')
+    else:
+        print(contents)
+
+reading()
 
 
-
-# 10-9. Silent Cats and Dogs: Modify your except block in Exercise 
-# 10-8 to fail silently if either file is missing.
+# 10-9. Silent Cats and Dogs: Modify your except block in Exercise 10-8 to fail silently if either file is missing.
 
 
 
