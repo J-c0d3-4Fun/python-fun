@@ -186,7 +186,18 @@ reading()
 
 # 10-9. Silent Cats and Dogs: Modify your except block in Exercise 10-8 to fail silently if either file is missing.
 
+from pathlib import Path
 
+def reader():
+    try:
+        filenames = ['cats.txt', 'dogs.txt']
+        for filename in filenames:
+            path = Path(filename)
+            contents = path.read_text()
+            print(contents)
+    except FileNotFoundError:
+        
+reader()
 
 
 # 10-10. Common Words: Visit Project Gutenberg (https://gutenberg.org ) and find a few texts you’d like to analyze. Download the text files for these works, 
