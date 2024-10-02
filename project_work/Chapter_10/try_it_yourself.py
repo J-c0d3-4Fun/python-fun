@@ -186,7 +186,18 @@ reading()
 
 # 10-9. Silent Cats and Dogs: Modify your except block in Exercise 10-8 to fail silently if either file is missing.
 
+from pathlib import Path
 
+def reader():
+    try:
+        filenames = ['cats.txt', 'dogs.txt']
+        for filename in filenames:
+            path = Path(filename)
+            contents = path.read_text()
+            print(contents)
+    except FileNotFoundError:
+        
+reader()
 
 
 # 10-10. Common Words: Visit Project Gutenberg (https://gutenberg.org ) and find a few texts you’d like to analyze. Download the text files for these works, 
@@ -202,7 +213,118 @@ reading()
 # as 'then' and 'there'. Try counting 'the ', with a space in the string, and see how much lower your count is.
 
 
+# 10-11. Favorite Number: Write a program that prompts for the user’s favorite number. 
+# Use json.dumps() to store this number in a file. Write a separate program 
+# that reads in this value and prints the message “I know your favorite
+# number! It’s _____.”
 
+from pathlib import Path
+import json
+
+def favorite_number():
+    prompt = input("What is your favorite number?")
+    path = Path("numbers.json")
+    contents = json.dumps(prompt)
+    path.write_text(contents)
+
+favorite_number()
+
+
+def read_number():
+    path = Path("numbers.json")
+    contents = path.read_text() 
+    reading = json.loads(contents)
+    print(f"I know your favorite number! It's {reading}")
+    
+read_number()
+
+
+# 10-12. Favorite Number Remembered: Combine the two programs you wrote in Exercise 10-11 into one file. 
+# If the number is already stored, report the favorite number to the user. 
+# If not, prompt for the user’s favorite number and store it in a file. 
+# Run the program twice to see that it works.
+
+from pathlib import Path
+import json
+
+def favorite_number():
+    """Asking for the favorite number"""
+    prompt = input("What is your favorite number?")
+    path = Path("numbers.json")
+    contents = json.dumps(prompt)
+    path.write_text(contents)
+    return prompt
+
+def read_number():
+    """Reading numbers from a file"""
+    path = Path("numbers.json")
+    if path.exists():
+        contents = path.read_text() 
+        reading = json.loads(contents)
+        print(f"I know your favorite number! It's {reading}")
+    else:
+        number = favorite_number()
+        print(f"We now have stored your favorite number, {number}")
+
+read_number()
+
+
+# 10-13. User Dictionary: The remember_me.py example only stores one piece of information, the username. 
+# Expand this example by asking for two more pieces of information about the user, then store all
+# the information you collect in a dictionary. Write this dictionary to a file using json.dumps(), 
+# and read it back in using json.loads(). Print a summary showing exactly what your program remembers about the user.
+
+from pathlib import Path
+import json
+
+def get_stored_username(path):
+    """Get stored username if available."""
+    if path.exists():
+        contents = path.read_text()
+        username = json.loads(contents)
+        return username
+    else:
+        return None
+
+def get_new_username(path):
+    """Prompt for a new username."""
+    username = input("What is your name? ")
+    contents = json.dumps(username)
+    path.write_text(contents)
+    return username 
+
+def get_location():
+    """ask user where they live"""
+    prompt = input("What city and state do you live in? ")
+    return prompt
+
+def get_age():
+    """ask for age""" 
+    prompt = input("How old are you? ")
+    return prompt
+
+def greet_user():
+    """Greet the user by name."""
+    path = Path('username.json')
+    info = {}
+    username = get_stored_username(path)
+    if username:
+        print(f"Welcome back, {username}!")
+    else:
+        username = get_new_username(path)
+        print(f"We'll remember you when you come back, {username}! ")
+    
+    """putting info into a dictionary"""
+    info['username'] = greet_user()
+    info['city and state'] = get_location()
+    info['age'] = get_age()
+greet_user()
+
+# 10-14. Verify User: The final listing for remember_me.py assumes either that the user has already 
+# entered their username or that the program is running for the first time. We should modify it in 
+# case the current user is not the person who last used the program.
+# Before printing a welcome back message in greet_user(), ask the user if this is the correct username. 
+# If it’s not, call get_new_username() to get the correct username.
 
 
 
