@@ -569,6 +569,272 @@ numbers = json.loads(contents)
 print(numbers)
 
 
+# Now we’ll write a separate program that uses json.loads() to read the list back into memory
+
+from pathlib import Path
+import json 
+
+path = Path('number.json')
+contents = path.read_text()
+numbers = json.lodas(contents)
+
+print(numbers)
+
+
+# We make sure to read from the same file we wrote to 1. Since the data file 
+# is just a text file with specific formatting, we can read it with the read_text() method. 
+# We then pass the contents of the file to json.loads(). 
+# This function takes in a JSON-formatted string and returns a 
+# Python object (in this case, a list), which we assign to numbers.
+
+
+
+# Saving and Reading User-Generated Data 
+
+
+# Saving data with json is useful when you’re working with user-generated data, 
+# because if you don’t store your user’s information somehow, 
+# you’ll lose it when the program stops running. 
+# Let’s look at an example where we prompt the user for their name 
+# the first time they run a program and then remember
+# their name when they run the program again.
+
+
+from pathlib import Path
+import json
+
+username = input("What is your name? ")
+
+path = Path('username.json')
+contents = json.dumps(username)
+path.write_text(contents)
+
+
+print(f"We'll remember you when you come back, {username}! ")
+
+
+# We first prompt for a username to store 1. 
+# Next, we write the data we just collected to a file called username.json 2. 
+# Then we print a message informing the user that we’ve stored their information
+
+# Now let’s write a new program that greets a user whose name has
+# already been stored
+
+
+from pathlib import Path
+import json
+
+
+path = Path('username.json')
+contents = path.read_text()
+username = json.loads(contents)
+
+print (f"Welcome back, {username} !")
+
+# We read the contents of the data file and then use json.loads() to
+# assign the recovered data to the variable username .
+
+
+
+# We need to combine these two programs into one file. When someone
+# runs remember_me.py, we want to retrieve their username from memory if
+# possible; if not, we’ll prompt for a username and store it in username.json for
+# next time. We could write a try-except block here to respond appropriately
+# if username.json doesn’t exist, but instead we’ll use a handy method from the
+# pathlib module
+
+from pathlib import Path
+import json
+
+
+path = Path('username.json')
+if path.exists():
+    contents = path.read_text()
+    username = json.loads(contents)
+    print(f"Welcome back, {username}!")
+else:
+    username = input("what is your name? ")
+    contents = json.dumps(username)
+    path.write_text(contents)
+    print(f"We'll remember you when you come back, {username}!")
+
+
+# There are many helpful methods you can use with Path objects. The
+# exists() method returns True if a file or folder exists and False if it doesn’t.
+# Here we use path.exists() to find out if a username has already been stored 1.
+# If username.json exists, we load the username and print a personalized greeting
+# to the user.
+# If the file username.json doesn’t exist 2, we prompt for a username and
+# store the value that the user enters. We also print the familiar message that
+# we’ll remember them when they come back.
+# Whichever block executes, the result is a username and an appropriate
+# greeting.
+
+
+# Refactoring
+
+# Often, you’ll come to a point where your code will work, 
+# but you’ll recognize that you could improve 
+# the code by breaking it up into a series of functions that have specific jobs. 
+# This process is called refactoring. Refactoring makes your 
+# code cleaner, easier to understand, and easier to extend.
+
+
+from pathlib import Path
+import json
+
+def greet_user():
+    """Greet the user by name."""
+    path = Path('username.json')
+    if path.exists():
+        contents = path.read_text()
+        username = json.loads(contents)
+        print(f"Welcome back, {username}!")
+    else:
+        username = input("what is your name? ")
+        contents = json.dumps(username)
+        path.write_text(contents)
+        print(f"We'll remember you when you come back, {username}!")
+
+greet_user()
+
+
+# Because we’re using a function now, we rewrite the comments 
+# as a docstring that reflects how the program currently works. 
+# This file is a little cleaner, but the function greet_user() is doing more than 
+# just greeting the user—it’s also retrieving a stored username 
+# if one exists and prompting for a new username if one doesn’t.
+# Let’s refactor greet_user() so it’s not doing so many different tasks. 
+# We’ll start by moving the code for retrieving a stored username to a separate function
+
+
+from pathlib import Path
+import json
+
+def get_stored_username(path):
+    """Get stored username if available."""
+    if path.exists():
+        contents = path.read_text()
+        username = json.loads(contents)
+        return username
+    else:
+        return None
+
+def greet_user():
+    """Greet the user by name."""
+    path = Path('username.json')
+    username = get_stored_username(path)
+    if username:
+        print(f"Welcome back, {username}!")
+    else:
+        username = input("What is your name? ")
+        contents = json.dumps(username)
+        path.write_text(contents)
+        print(f"We'll remember you when you come back, {username}! ")
+
+greet_user()
+
+
+
+# The new function get_stored_username() 1 has a clear purpose, as stated
+# in the docstring. This function retrieves a stored username and returns the
+# username if it finds one. If the path that’s passed to get_stored_username()
+# doesn’t exist, the function returns None 2. This is good practice: a function
+# should either return the value you’re expecting, or it should return None.
+# This allows us to perform a simple test with the return value of the function.
+# We print a welcome back message to the user if the attempt to retrieve
+# a username is successful 3, and if it isn’t, we prompt for a new username.
+# We should factor one more block of code out of greet_user(). If the username
+# doesn’t exist, we should move the code that prompts for a new username
+# to a function dedicated to that purpose
+
+
+
+from pathlib import Path
+import json
+
+def get_stored_username(path):
+    """Get stored username if available."""
+    if path.exists():
+        contents = path.read_text()
+        username = json.loads(contents)
+        return username
+    else:
+        return None
+
+def get_new_username(path):
+    """Prompt for a new username."""
+    username = input("What is your name? ")
+    contents = json.dumps(username)
+    path.write_text(contents)
+    return username 
+
+def greet_user():
+    """Greet the user by name."""
+    path = Path('username.json')
+    username = get_stored_username(path)
+    if username:
+        print(f"Welcome back, {username}!")
+    else:
+        username = get_new_username(path)
+        print(f"We'll remember you when you come back, {username}! ")
+
+greet_user()
+
+# Each function in this final version of remember_me.py has a single, clear purpose. 
+# We call greet_user(), and that function prints an appropriate 
+# message: it either welcomes back an existing user or greets a new user. 
+# It does this by calling get_stored_username(), which is 
+# responsible only for retrieving a stored username if one exists. 
+# Finally, if necessary, greet_user() calls get_new_username(), 
+# which is responsible only for getting a new username and storing it. 
+# This compartmentalization of work is an essential part of 
+# writing clear code that will be easy to maintain and extend.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
