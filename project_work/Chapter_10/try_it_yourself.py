@@ -286,39 +286,64 @@ def get_stored_username(path):
     else:
         return None
 
-def get_new_username(path):
+def get_new_username():
     """Prompt for a new username."""
     username = input("What is your name? ")
-    contents = json.dumps(username)
-    path.write_text(contents)
+    # contents = json.dumps(username)
+    # path.write_text(contents)
     return username 
 
 def get_location():
     """ask user where they live"""
     prompt = input("What city and state do you live in? ")
+    # contents = json.dumps(prompt)
+    # path.write_text(contents)
     return prompt
 
 def get_age():
     """ask for age""" 
     prompt = input("How old are you? ")
+    # contents = json.dumps(prompt)
+    # path.write_text(contents)
     return prompt
+
 
 def greet_user():
     """Greet the user by name."""
     path = Path('username.json')
-    info = {}
     username = get_stored_username(path)
     if username:
         print(f"Welcome back, {username}!")
     else:
-        username = get_new_username(path)
+        username = get_new_username()
         print(f"We'll remember you when you come back, {username}! ")
-    
+    return username
+
+
+def dictionary(path): 
     """putting info into a dictionary"""
+    path = Path("dictionary.json")
+    info = {}
     info['username'] = greet_user()
     info['city and state'] = get_location()
     info['age'] = get_age()
-greet_user()
+    contents = json.dumps(info) 
+    path.write_text(contents)
+    return_dictionary(path)
+    
+    
+    
+
+def return_dictionary(path):
+    """returns the info in the dictionary"""
+    contents = path.read_text()
+    dictionary = json.loads(contents)
+    print(f"This is what we currently have stored as your info: {dictionary}")
+    return dictionary
+
+
+dictionary('dictionary.json')
+
 
 # 10-14. Verify User: The final listing for remember_me.py assumes either that the user has already 
 # entered their username or that the program is running for the first time. We should modify it in 
@@ -326,12 +351,55 @@ greet_user()
 # Before printing a welcome back message in greet_user(), ask the user if this is the correct username. 
 # If it’s not, call get_new_username() to get the correct username.
 
+from pathlib import Path
+import json
+
+def get_stored_username(path):
+    """Get stored username if available."""
+    if path.exists():
+        contents = path.read_text()
+        username = json.loads(contents)
+        return username
+    else:
+        return None
+    
+def get_new_username():
+    """Prompt for a new username."""
+    username = input("What is your name? ")
+    contents = json.dumps(username)
+    path.write_text(contents)
+    return username 
+
+def check_stored_username(path):
+    if path.exists():
+        contents = path.read_text()
+        username = json.loads(contents)
+        prompt = input(f"Please confirm if this is the correct username?(y/n):{username} ")
+        if prompt.lower() == 'y':
+            greet_user()
+        else:
+            get_new_username()
+        return username
+    else:
+        return None
+    
+    
+
+def greet_user():
+    """Greet the user by name."""
+    path = Path('username.json')
+    username = get_stored_username(path)
+    if username:
+        print(f"Welcome back, {username}!")
+    elif username:
+        check_stored_username(path)
+    else:
+        username = get_new_username()
+        print(f"We'll remember you when you come back, {username}! ")
+    return username
 
 
-
-
-
-
+greet_user()
 
 
 
