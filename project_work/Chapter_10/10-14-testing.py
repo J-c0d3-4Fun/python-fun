@@ -21,7 +21,7 @@ def check_stored_username(path):
     if path.exists():
         contents = path.read_text()
         username = json.loads(contents)
-        prompt = input(f"Please confirm if this is the correct username?(y/n):{username} ")
+        prompt = input(f"Please confirm if this is the correct username?(y/n): {username} ")
         if prompt.lower() == 'n':
             get_new_username(path)
         
