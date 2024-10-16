@@ -186,3 +186,14 @@ exception to be raised.
 run only if the try block was successful; this code goes in the else block.
 - The except block tells Python what to do in case a certain exception arises
 when it tries to run the code in the try block.
+
+
+Assertion Table
+
+Assertion                                   Claim
+assert a == b                   Assert that two values are equal.
+assert a != b                   Assert that two values are not equal.
+assert a                        Assert that a evaluates to True.
+assert not a                    Assert that a evaluates to False.
+assert element in list          Assert that an element is in a list.
+assert element not in list      Assert that an element is not in a list.
