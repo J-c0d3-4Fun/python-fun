@@ -108,6 +108,21 @@ project_work/Chapter_11/pytest/test_city_function.py .                   [ 100%]
 # create a new employee instance in each test function. Run the tests again, and
 # make sure both tests still pass
 
+class Employee:
+
+    def __init__(self,first_name, last_name, salary):
+        self.first_name = first_name
+        self.last_name = last_name
+        self.salary = salary
+
+    def give_raise(self):
+        prompt = input("Do you want to give a custom raise? 'y' or 'n': ")
+        if prompt == 'y':
+            self.salary = int(input("enter raise here: ")) + self.salary
+        else:
+            self.salary = self.salary + 5000
+        print(f"the employees salary is now ${self.salary}")
+
 
 
 
