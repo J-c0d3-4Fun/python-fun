@@ -116,12 +116,13 @@ class Employee:
         self.salary = salary
 
     def give_raise(self):
-        prompt = input("Do you want to give a custom raise? 'y' or 'n': ")
+        name = f"{self.first_name} {self.last_name}"
+        prompt = input(f"Do you want to give a {name} custom raise? 'y' or 'n': ")
         if prompt == 'y':
             self.salary = int(input("enter raise here: ")) + self.salary
         else:
             self.salary = self.salary + 5000
-        print(f"the employees salary is now ${self.salary}")
+        print(f"{name} salary is now ${self.salary}")
 
 
 
