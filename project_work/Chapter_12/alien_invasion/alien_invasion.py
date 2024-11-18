@@ -2,29 +2,52 @@ import sys
 
 import pygame
 
+from settings import Settings
+
 class AlienInvasion:
     """Overall class to manage game assets and behavior"""
 
     def __init__(self):
         """Initialize the game and create game resources."""
         pygame.init()
-
-        self.screen = pygame.display.set_mode((1200, 800))
+        # Controlling Frame Rate
+        self.clock  = pygame.time.Clock()
+        # Instance of Settings function
+        self.settings = Settings()
+        # The object assigned to self.screen is called a surface. 
+        # A surface in a Pygame is a part of the screen were a game element can be displayed.
+        self.screen = pygame.display.set_mode((self.settings.screen_width, self.settings.screen_height))
         pygame.display.set_caption("Alien Invasion")
 
+
+
     def run_game(self):
-        """Start the main loop for the game"""
+        """Start the main loop fr the game"""
         while True:
             # Watch for keyboard and mouse events.
+            # An event is an action that the user performs while playing the game.
+            # i.e. pressing a key or mouse event
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     sys.exit()
 
+            # Redraw the screen during each passs through the loop.
+            # The fill() method acts on a surface and takes only one argument: a color.
+            self.screen.fill(self.settings.bg_color)
+
 
             # Make the most recently drawn screen visible.
             pygame.display.flip()
+            # instance of the class Clock
+            # the tick() method takes one argument: the fram rate for the game.
+            self.clock.tick(60)
+
 
 if __name__ == '__main__':
     # Make a game instance and run the game.
     ai = AlienInvasion()
     ai.run_game()
+
+
+
+
