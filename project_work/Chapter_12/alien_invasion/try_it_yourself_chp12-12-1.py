@@ -1,0 +1,28 @@
+import sys
+import pygame
+
+class Screen:
+
+    def __init__(self):
+        """Set the settings for the background color to be blue"""
+        self.screen_width = 1200
+        self.screen_height = 800
+        self.bg_color = (0,0,250)
+        self.screen = pygame.display.set_mode((self.screen_width, self.screen_height))
+        pygame.display.set_caption("Blue Background")
+        self.clock  = pygame.time.Clock()
+        pygame.init()
+
+    def create_bg(self):
+        """Create the screen with the blue background"""
+        while True:
+            for event in pygame.event.get():
+                if event.type == pygame.QUIT:
+                    sys.exit()
+            self.screen.fill(self.bg_color)
+            pygame.display.flip()
+            self.clock.tick(60)
+
+if __name__ == '__main__':
+    sc = Screen()
+    sc.create_bg()
