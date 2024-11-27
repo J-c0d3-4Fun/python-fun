@@ -99,7 +99,21 @@ if __name__ == '__main__':
     sc.create_bg()
 
 
+# 12-3. Pygame Documentation: We’re far enough into the game now that you might want to look at some of the Pygame documentation. 
+# The Pygame home page is at https://pygame.org, and the home page for the documentation is at https://pygame.org/docs. 
+# Just skim the documentation for now. You won’t need it to complete this project, but it will help if you want to modify 
+# Alien Invasion or make your own game afterward.
 
+
+
+# 12-4. Rocket: Make a game that begins with a rocket in the center of the screen. 
+# Allow the player to move the rocket up, down, left, or right using the four arrow keys. 
+# Make sure the rocket never moves beyond any edge of the screen.
+
+
+# 12-5. Keys: Make a Pygame file that creates an empty screen. 
+# In the event loop, print the event.key attribute whenever a pygame.KEYDOWN 
+# event is detected. Run the program and press various keys to see how Pygame responds.
 
 
 
