@@ -140,20 +140,89 @@
 # both keys when changing directions.
 
 
+# Adjusting the Ship's Speed
+# Currently, the ship moves one pixel per cycle through 
+# the while loop, but we can take finer control of the ship’s 
+# speed by adding a ship_speed attribute to the Settings class. 
+# We’ll use this attribute to determine how far to move the 
+# ship on each pass through the loop.
+
+# NOTE rect attributes such as x store only integer values
+
+
+   def update(self): 
+        """Update the ship's position based on the movement flag."""
+        if self.moving_right:
+            self.rect.x += 1
+        if self.moving_left:
+            self.rect.x -= 1
+
+
+# We create a settings attribute for Ship, so we can use it in update().
+# Because we’re adjusting the position of the ship by fractions of a pixel, we
+# need to assign the position to a variable that can have a float assigned to it.
+# You can use a float to set an attribute of a rect, but the rect will only keep
+# the integer portion of that value. To keep track of the ship’s position accurately,
+# we define a new self.x. We use the float() function to convert the
+# value of self.rect.x to a float and assign this value to self.x.
+# Now when we change the ship’s position in update(), the value of self.x
+# is adjusted by the amount stored in settings.ship_speed. After self.x
+# has been updated, we use the new value to update self.rect.x, which controls
+# the position of the ship 4. Only the integer portion of self.x will be
+# assigned to self.rect.x, but that’s fine for displaying the ship.
+# Now we can change the value of ship_speed, and any value greater than 1
+# will make the ship move faster. This will help make the ship respond
+# quickly enough to shoot down aliens, and it will let us change the tempo
+# of the game as the player progresses in gameplay
+
+
+# Limiting the Ship's Range
+# This code checks the position of the ship before changing the value of
+# self.x. The code self.rect.right returns the x-coordinate of the right edge
+# of the ship’s rect. If this value is less than the value returned by self.screen
+# _rect.right, the ship hasn’t reached the right edge of the screen. The same
+# goes for the left edge: if the value of the left side of the rect is greater than 0,
+# the ship hasn’t reached the left edge of the screen. This ensures the ship
+# is within these bounds before adjusting the value of self.x.
+
+
+# Refactoring _check_events()
+#  The _check_events() method will increase in length as we continue to develop the game
+
+# We make two new helper methods: _check_keydown_events() and _check
+# _keyup_events(). Each needs a self parameter and an event parameter. 
+# The bodies of these two methods are copied from _check_events(), 
+# and we’ve replaced the old code with calls to the new methods. 
+# The _check_events() method is simpler now with this cleaner 
+# code structure, which will make it easier to develop further 
+# responses to player input.
 
 
 
 
+# Pressing Q to Quit 
+# It gets tedious to click the X at the top of the game window 
+# to end the game every time you test a new feature, 
+# so we’ll add a keyboard shortcut to end the game when the player presses Q:
+
+# In _check_keydown_events(), we add a new block that ends the game when
+# the player presses Q. Now, when testing, you can press Q to close the game
+# instead of using your cursor to close the window
 
 
+# Running the Game in Fullscreen Mode
 
+# Pygame has a fullscreen mode that you might like better than running
+# the game in a regular window. Some games look better in fullscreen
+# mode, and on some systems, the game may perform better overall in
+# fullscreen mode.
 
+# When creating the screen surface, we pass a size of (0, 0) and the
+# parameter pygame.FULLSCREEN. This tells Pygame to figure out a window
+# size that will fill the screen. Because we don’t know the width and height of
+# the screen ahead of time, we update these settings after the screen is created. 
+# We use the width and height attributes of the screen’s rect to update
+# the settings object.
 
-
-
-
-
-
-
-
-
+# NOTE Make sure you can quit by pressing Q before running the game in fullscreen mode;
+# Pygame offers no default way to quit a game while in fullscreen mode.
