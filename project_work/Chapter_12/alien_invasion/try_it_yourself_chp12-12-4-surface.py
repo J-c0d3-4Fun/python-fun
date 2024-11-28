@@ -29,6 +29,10 @@ class RocketPower:
         self.rocket.blitme()
         pygame.display.flip()
 
+    def _keydown(self,event):
+        """Whenplayers press down a key the action will happen"""
+        if event.key == pygame.K_RIGHT:
+
 if __name__ == '__main__':
     game = RocketPower()
     game.surface()
