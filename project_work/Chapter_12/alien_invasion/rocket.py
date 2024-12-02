@@ -15,9 +15,19 @@ class Rocket:
         self.moving_up = False
         self.moving_down = False
     
-    def update(self):
-        if self.moving_right:
-            self += 1
+    def update_h(self):
+        """horizontal movement"""
+        if self.moving_right and self.rect.right < self.screen_rect.right:
+            self.rect.x += 1
+        elif self.moving_left and self.rect.left > 0 :
+            self.rect.x -= 1
+    
+    def update_v(self):
+        """vertical movement"""
+        if self.moving_up:
+            self.rect.y += -1
+        elif self.moving_down:
+            self.rect.y += 1
 
     def blitme(self):
         """Draw the rocket ship at its current location"""
