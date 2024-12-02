@@ -24,9 +24,9 @@ class Rocket:
     
     def update_v(self):
         """vertical movement"""
-        if self.moving_up:
-            self.rect.y += -1
-        elif self.moving_down:
+        if self.moving_up and self.rect.top > 0:
+            self.rect.y -= 1
+        elif self.moving_down and self.rect.bottom < self.screen_rect.bottom:
             self.rect.y += 1
 
     def blitme(self):
