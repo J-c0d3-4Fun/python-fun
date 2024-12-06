@@ -226,3 +226,87 @@
 
 # NOTE Make sure you can quit by pressing Q before running the game in fullscreen mode;
 # Pygame offers no default way to quit a game while in fullscreen mode.
+
+
+# Shooting Bullets
+# The Bullet class inherits from Sprite, which we import from the pygame
+# .sprite module. When you use sprites, you can group related elements in
+# your game and act on all the grouped elements at once.
+
+
+# To create a bullet instance, __init__() needs the current 
+# instance of AlienInvasion, and we call
+# super() to inherit properly from Sprite. We also set attributes 
+# for the screen and settings objects, and for the bullet’s color.
+
+
+# Next we create the bullet’s rect attribute 1. The bullet isn’t based 
+# on an image, so we have to build a rect from scratch using the 
+# pygame.Rect() class. This class requires the x- and y-coordinates 
+# of the top-left corner of the rect, and the width and height of the rect. 
+# We initialize the rect at (0, 0), but we’ll move it to the correct 
+# location in the next line, because the bullet’s position depends on 
+# the ship’s position. We get the width and height of the bullet 
+# from the values stored in self.settings.
+
+# We set the bullet’s midtop attribute to match the ship’s midtop attribute 2. 
+# This will make the bullet emerge from the top of the ship, 
+# making it look like the bullet is fired from the ship. 
+# We use a float for the bullet’s y-coordinate so we can make fine 
+# adjustments to the bullet’s speed 3.
+
+
+
+# The update() method manages the bullet’s position. When a bullet is fired, 
+# it moves up the screen, which corresponds to a decreasing y-coordinate value. 
+# To update the position, we subtract the amount stored in settings
+# .bullet_speed from self.y 1. We then use the value of self.y to set the value
+# of self.rect.y 2.
+# The bullet_speed setting allows us to increase the speed of the bullets 
+# as the game progresses or as needed to refine the game’s behavior. 
+# Once a bullet is fired, we never change the value of its x-coordinate, 
+# so it will travel vertically in a straight line even if the ship moves.
+# When we want to draw a bullet, we call draw_bullet(). 
+# The draw.rect() function fills the part of the screen defined by 
+# the bullet’s rect with the color stored in self.color 3.
+
+
+# Storing Bullets in a Group 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
