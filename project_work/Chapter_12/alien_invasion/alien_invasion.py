@@ -1,10 +1,8 @@
 import sys
-
 import pygame
-
 from settings import Settings
-
 from ship import Ship
+from bullet import Bullet
 
 class AlienInvasion:
     """Overall class to manage game assets and behavior"""
@@ -32,6 +30,11 @@ class AlienInvasion:
         # The self argument here refers to the current instance of AlienInvasion
         self.ship = Ship(self)
 
+        # The group that holds the bullets:
+        self.bullets = pygame.sprite.Group()
+        # Get rid of bullets that have disappeared.
+
+       
 
 
     def run_game(self):
@@ -42,7 +45,7 @@ class AlienInvasion:
             self._check_events()
             self.ship.update()
             self._update_screen()
-           
+            self._update_bullets()
             # instance of the class Clock
             # the tick() method takes one argument: the fram rate for the game.
             self.clock.tick(60)
@@ -74,6 +77,9 @@ class AlienInvasion:
             self.ship.moving_left = True
         elif event.key == pygame.K_q:
             sys.exit()
+        # call _fire_bullet() when the spacebar is pressed
+        elif event.key == pygame.K_SPACE:
+            self._fire_bullet()
     
     # Helper Method to _check_events
     def _check_keyup_events(self,event):
@@ -84,13 +90,42 @@ class AlienInvasion:
         elif event.key == pygame.K_LEFT:
             # Do not move to the left
             self.ship.moving_left = False
-
-
     
+    # Helper Method to fire the bullets (_check_keydown_events)
+    def _fire_bullet(self):
+        """Create a new bullet and add it to the bullets group"""
+        if len(self.bullets) <self.settings.bullets_allowed:
+            # Make an instance of Bullet and call it new_bullet 
+            new_bullet = Bullet(self)
+            # Then add it to the group bullets using the add() method 
+            # The add() method is similar to append(), but it’s written specifically for Pygame groups
+            self.bullets.add(new_bullet)
+
+    def _update_bullets(self):
+        """Update position of bullets and get rid of old bullets."""
+        # Update bullet position
+        # update the position of the bullets on each pass through the while loop
+        self.bullets.update()
+        # use the copy() method to set up the for loop
+        for bullet in self.bullets.copy():
+            # check each bullet to see whether it has disappeared off the top of the screen
+            if bullet.rect.bottom <= 0:
+                # If it has, we remove it from bullets
+                self.bullets.remove(bullet)
+        # Show how many bullets currently exist in the game and verify
+        # they’re being deleted when they reach the top of the screen
+        print(len(self.bullets))
+           
+
     def _update_screen(self):
         # Redraw the screen during each passs through the loop.
         # The fill() method acts on a surface and takes only one argument: a color.
         self.screen.fill(self.settings.bg_color)
+        
+        # The bullets.sprites() method returns a list of all sprites in the group bullets. 
+        # To draw all fired bullets to the screen, we loop through the sprites in bullets and call draw_bullet() on each one
+        for bullet in self.bullets.sprites():
+            bullet.draw_bullet()
             
         # After filling the background the ship is drawn on the screen by calling 
         # ship.blitme(), so the ship appears on top of the background.
