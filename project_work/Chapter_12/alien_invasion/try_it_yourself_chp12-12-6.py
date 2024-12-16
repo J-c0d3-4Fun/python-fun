@@ -10,3 +10,13 @@ class Surface:
         pygame.display.set_caption("Ship Shooting Game")
         self.clock = pygame.time.Clock()
         pygame.init()
+
+    
+    def surface(self):
+        """Creates the surface for the game."""
+        while True:
+            for event in pygame.event.get():
+                if event.type == pygame.QUIT:
+                    pygame.quit()
+                    raise SystemExit
+        
