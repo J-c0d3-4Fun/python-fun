@@ -1,13 +1,13 @@
 import pygame
 
-class tship:
+class TShip:
     """this will create a tiny rocket ship"""
 
 
     def __init__(self,tship):
         self.screen = tship.screen
         self.screen_rect = tship.screen.get_rect()
-        self.image = pygame.image.load('/Users/jbrown/python-fun/project_work/Chapter_12/alien_invasion/images/tiny.bmp')
+        self.image = pygame.image.load('images/tiny.bmp')
         self.rect = self.image.get_rect()
         self.rect.bottomleft = self.screen_rect.bottomleft
         self.moving_up = False
