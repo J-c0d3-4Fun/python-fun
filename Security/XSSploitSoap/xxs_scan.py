@@ -5,16 +5,19 @@ import os
 
 def read_file(a):
 
-    a.strip()
-    ospath = os.path.expanduser(a)
+    # Grab absolute path
+    ospath = os.path.abspath(a)
+    print("Trying to open:", ospath) # Debug
     with open(ospath,"r") as file:
-        fileList = []
-        fileList.append(file)
-        for i in fileList:
-            if i == 0:
-                return "list is empty!"
-            # print(i.strip())
-            test = list(map(str, i))
-            return test
-r = read_file("test.txt")
+        fileList = file.readlines()
+        print(f"debugging fileList: {fileList}") # Debug
+        if len(fileList) == 0:
+            return "list is empty!" 
+        else:
+            for i in fileList:
+            # Checks for if the file is empty
+                print(i.strip( ))
+
+
+r = read_file("/Users/jbrown/python-fun/Security/XSSploitSoap/test.txt")
 print(r)
