@@ -1,8 +1,9 @@
 import argparse
 import requests as r
+import json
 
 
-
+data_to_json = None
 
 parser = argparse.ArgumentParser()
 parser.add_argument( "-u", "--url", required=True, help="sets the url" )
@@ -12,6 +13,7 @@ parser.add_argument( "-c", "--cookie", help="add cookies in key=value;key2=value
 parser.add_argument( "-he", "--header", help="add a header to the request")
 parser.add_argument( "-v", "--verbosity", type=int, choices=[0, 1, 2, 3],help="Set verbosity level (0-3)")
 parser.add_argument( "-t", "--timeout", type=int, default=10, help="Request timeout in seconds")
+parser.add_argument( "-o", "--output", choices=["JSON"], help="Outputs the request int eh format you like")
 args = parser.parse_args()
 
     
@@ -25,6 +27,16 @@ headers = None
 if args.header and args.header.strip():
     headers = dict(item.strip().split(":", 1) for item in args.header.split(";") if ":" in item)
 
+# this allows me to parse the namespace if args.output is used
+# vars - turns args namespace into a dictionary
+output = None
+if args.output:
+   output = data_to_json = vars(args)
+print(json.dumps(data_to_json, indent=4))
+### ^^^^ needs to be fixed
+
+
+
 verbosity = args.verbosity if args.verbosity is not None else 0
 try:    
     if args.method == "POST":
@@ -36,9 +48,9 @@ try:
     elif args.method == "OPTIONS":
         request = r.options(args.url, headers=headers, cookies=cookies, timeout=args.timeout)
     else:
-        request = r.get(args.url, headers=headers, cookies=cookies, timeout=args.timeout) 
-    
-        
+        request = r.get(args.url, headers=headers, cookies=cookies, timeout=args.timeout ) 
+
+
     if args.verbosity == 0:
         print(f"Status Response Code: {request.status_code}")
     elif args.verbosity == 1:
